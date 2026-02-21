@@ -14,7 +14,7 @@ const BackButton = ({
 
   return (
     <TouchableOpacity
-      onPress={() => router.back}
+      onPress={() => router.back()}
       style={[styles.button, style]}
     >
       <CaretLeftIcon

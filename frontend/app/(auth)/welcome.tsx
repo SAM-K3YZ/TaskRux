@@ -46,7 +46,10 @@ const Welcome = () => {
             </View>
             <View style={styles.toSignIn}>
               <Typo size={16}>Already have an account?</Typo>
-              <Pressable style={styles.signInBtn}>
+              <Pressable
+                style={styles.signInBtn}
+                onPress={() => router.push("/(auth)/welcomeBack")}
+              >
                 <Typo size={16} fontWeight={"bold"} color={palette.brandOrange}>
                   Sign In
                 </Typo>
