@@ -8,7 +8,7 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 
-const Welcome = () => {
+function Welcome() {
   const router = useRouter();
   return (
     <ScreenWrapper showBg={true} bgOpacity={0.5}>
@@ -63,7 +63,7 @@ const Welcome = () => {
               color={palette.neutral400}
               style={styles.agreementText}
             >
-              By countinuing, you agree to out Terms of Service and Privacy
+              By countinuing, you agree to our Terms of Service and Privacy
               Policy.
             </Typo>
           </View>
@@ -71,7 +71,7 @@ const Welcome = () => {
       </View>
     </ScreenWrapper>
   );
-};
+}
 
 export default Welcome;
 

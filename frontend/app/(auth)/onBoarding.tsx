@@ -1,9 +1,10 @@
 import BackButton from "@/components/BackButton";
 import DefaultButton from "@/components/DefaultButton";
+import OnboardngStep from "@/components/OnboardngStep";
 import RadioInput from "@/components/RadioInput";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import Typo from "@/components/Typo";
-import { light, palette, spacingX, spacingY } from "@/constants/theme";
+import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
 import { verticalScale } from "@/utils/styling";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -13,13 +14,14 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
   ScrollView,
   StyleSheet,
   View,
 } from "react-native";
 import Input from "../../components/Input";
 
-const onBoarding = () => {
+function OnBoarding() {
   const nameRef = useRef("");
   const licenseRef = useRef("");
   const emailRef = useRef("");
@@ -34,6 +36,16 @@ const onBoarding = () => {
       );
       return;
     }
+    router.push("/(auth)/onBoarding_location");
+  };
+  const handleFileUpload = async () => {
+    try {
+      // file upload logic here
+      console.log("File upload initiated");
+    } catch (error) {
+      Alert.alert("Error", "Failed to upload file");
+      console.error(error);
+    }
   };
 
   return (
@@ -43,26 +55,46 @@ const onBoarding = () => {
     >
       <ScreenWrapper>
         <View style={styles.container}>
-          <View style={styles.header}>
-            <BackButton color={light.textSecondary} iconSize={28} />
-            <Typo size={14} color={light.textSecondary}>
-              Need help?
-            </Typo>
+          {/*Screen Top */}
+          <View style={styles.top}>
+            <View style={styles.header}>
+              <BackButton color={light.textSecondary} iconSize={28} />
+              <Typo size={14} color={light.textSecondary}>
+                Need help?
+              </Typo>
+            </View>
+            {/*Progressional steps */}
+            <View>
+              <View style={styles.steps}>
+                <OnboardngStep step={1} totalSteps={4} />
+              </View>
+            </View>
           </View>
 
+          {/*Screen Middle */}
           <View>
             <ScrollView
               contentContainerStyle={styles.form}
               showsVerticalScrollIndicator={false}
             >
               <View style={{ gap: spacingY._10, marginBottom: spacingY._15 }}>
-                <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
-                  {"Let's set up your company"}
-                </Typo>
-                <Typo size={14} color={palette.neutral600}>
-                  Enter your legal business details to start managing your sites
-                  and workers efficiently.
-                </Typo>
+                {/* Header icon*/}
+                <View style={styles.headerContainer}>
+                  <Icons.BuildingOfficeIcon
+                    size={verticalScale(24)}
+                    color={light.primary}
+                  />
+                </View>
+                {/* Header text*/}
+                <View>
+                  <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
+                    {"Let's set up your company"}
+                  </Typo>
+                  <Typo size={14} color={palette.neutral600}>
+                    Enter your legal business details to start managing your
+                    sites and workers efficiently.
+                  </Typo>
+                </View>
               </View>
 
               <View style={styles.textInputs}>
@@ -91,7 +123,7 @@ const onBoarding = () => {
                   }}
                   icon={
                     <Icons.AtIcon
-                      size={verticalScale(26)}
+                      size={verticalScale(20)}
                       color={palette.neutral600}
                     />
                   }
@@ -115,12 +147,12 @@ const onBoarding = () => {
 
               {/*Company Industry*/}
               <View style={styles.radioGroup}>
-                <View style={styles.industrySec}>
+                <View>
                   <Typo size={16} fontWeight={"bold"} color={light.textPrimary}>
                     Primary Industry
                   </Typo>
                 </View>
-
+                {/*Radio buttons*/}
                 <View style={styles.radioBtns}>
                   <RadioInput
                     label="General Contracting"
@@ -152,38 +184,62 @@ const onBoarding = () => {
                     icon={Icons.CraneIcon}
                   />
                 </View>
+              </View>
 
-                {/*Footer*/}
-                <View style={styles.footer}>
-                  {/*Next Button*/}
-                  <View style={styles.nextBtn}>
-                    <DefaultButton loading={isLoading} onPress={handleSubmit}>
-                      <Typo
-                        fontWeight={"bold"}
-                        color={light.textOnPrimary}
-                        size={20}
-                      >
-                        Continue to Location
-                      </Typo>
-                      <View style={styles.btnIcon}>
-                        <FontAwesome6
-                          name="arrow-right"
-                          color={light.textOnPrimary}
-                          size={18}
-                        />
-                      </View>
-                    </DefaultButton>
-                  </View>
-
-                  {/* Terms*/}
-                  <Typo
-                    size={10}
-                    color={light.textSecondary}
-                    style={styles.footerTxt}
-                  >
-                    By continuing, you agree to our Terms and Services
+              {/*Company log upload */}
+              <View style={styles.companyLogo}>
+                <View>
+                  <Typo size={16} color={light.textPrimary} fontWeight={"bold"}>
+                    Company Logo
                   </Typo>
                 </View>
+                <Pressable onPress={handleFileUpload}>
+                  <View style={styles.uploadArea}>
+                    <Icons.UploadSimpleIcon
+                      size={verticalScale(20)}
+                      color={light.textSecondary}
+                    />
+                    <Typo
+                      color={light.primary}
+                      size={verticalScale(14)}
+                      fontWeight={"bold"}
+                    >
+                      Tap to upload
+                    </Typo>
+                  </View>
+                </Pressable>
+              </View>
+
+              {/*Footer*/}
+              <View style={styles.footer}>
+                {/*Next Button*/}
+                <View style={styles.nextBtn}>
+                  <DefaultButton loading={isLoading} onPress={handleSubmit}>
+                    <Typo
+                      fontWeight={"bold"}
+                      color={light.textOnPrimary}
+                      size={20}
+                    >
+                      Continue to Location
+                    </Typo>
+                    <View style={styles.btnIcon}>
+                      <FontAwesome6
+                        name="arrow-right"
+                        color={light.textOnPrimary}
+                        size={18}
+                      />
+                    </View>
+                  </DefaultButton>
+                </View>
+
+                {/* Terms*/}
+                <Typo
+                  size={10}
+                  color={light.textSecondary}
+                  style={styles.footerTxt}
+                >
+                  By continuing, you agree to our Terms and Services
+                </Typo>
               </View>
             </ScrollView>
           </View>
@@ -191,9 +247,9 @@ const onBoarding = () => {
       </ScreenWrapper>
     </KeyboardAvoidingView>
   );
-};
+}
 
-export default onBoarding;
+export default OnBoarding;
 
 const styles = StyleSheet.create({
   container: {
@@ -201,13 +257,25 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
     backgroundColor: light.background,
   },
-  header: {
+  top: {
     paddingHorizontal: spacingX._20,
     paddingTop: spacingY._15,
-    paddingBottom: spacingY._25,
+    paddingBottom: spacingY._10,
+  },
+  header: {
+    paddingBottom: spacingY._15,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  headerContainer: {
+    alignSelf: "flex-start",
+    padding: spacingY._15,
+    backgroundColor: light.primaryLight,
+    borderRadius: radius._15,
+  },
+  steps: {
+    marginBottom: spacingY._15,
   },
   form: {
     paddingHorizontal: spacingX._20,
@@ -223,6 +291,20 @@ const styles = StyleSheet.create({
   radioBtns: {
     marginTop: spacingX._15,
     gap: spacingY._12,
+  },
+  companyLogo: {
+    marginTop: spacingY._20,
+  },
+  uploadArea: {
+    height: 120,
+    marginTop: spacingY._10,
+    justifyContent: "center",
+    alignItems: "center",
+    borderStyle: "dashed",
+    borderColor: light.border,
+    borderWidth: 2,
+    borderRadius: radius._10,
+    borderCurve: "continuous",
   },
   nextBtn: {
     marginTop: spacingY._25,
