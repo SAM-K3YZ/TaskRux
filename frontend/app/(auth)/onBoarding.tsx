@@ -29,18 +29,20 @@ function OnBoarding() {
   const router = useRouter();
   const [selected, setSelected] = useState("general");
   const handleSubmit = async () => {
-    if (!nameRef.current || !emailRef.current || !licenseRef.current) {
-      Alert.alert(
-        "Continue to location...",
-        "Please fill all the fields with astericks(*)",
-      );
-      return;
-    }
+    // if (!nameRef.current || !emailRef.current || !licenseRef.current) {
+    //   Alert.alert(
+    //     "Continue to location...",
+    //     "Please fill all the fields with astericks(*)",
+    //   );
+    //   return;
+    // }
     router.push("/(auth)/onBoarding_location");
+    console.log("To onboarding location screen...");
   };
   const handleFileUpload = async () => {
     try {
       // file upload logic here
+      Alert.prompt("Company logo", "Feature coming soon...");
       console.log("File upload initiated");
     } catch (error) {
       Alert.alert("Error", "Failed to upload file");

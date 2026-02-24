@@ -7,7 +7,7 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 const Input = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, props.wrapperStyle]}>
       {props.label && <Text style={styles.label}>{props.label}</Text>}
       <View
         style={[
