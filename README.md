@@ -150,5 +150,6 @@ Have questions or suggestions? Reach out via the Issues tab or contact the maint
 
 ---
 
-> Built with 💖 for the people who build the world.
+> Built with 💖 from Exypnos Design to the people who build the world.
+
 
