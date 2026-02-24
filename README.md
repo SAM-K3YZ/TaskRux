@@ -55,7 +55,7 @@ Make sure you have the following installed:
 
 ```bash
 git clone https://github.com/SAM-K3YZ/TaskRux.git
-cd siteops
+cd TaskRux
 ```
 
 ---
@@ -151,3 +151,4 @@ Have questions or suggestions? Reach out via the Issues tab or contact the maint
 ---
 
 > Built with 💖 for the people who build the world.
+
