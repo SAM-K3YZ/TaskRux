@@ -27,7 +27,6 @@ function OnBoarding_location() {
   const codeRef = useRef("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const [selected, setSelected] = useState("general");
   const handleSubmit = async () => {
     // if (!addressRef.current || !cityRef.current || !stateRef.current) {
     //   Alert.alert(
@@ -168,7 +167,7 @@ function OnBoarding_location() {
                 <Input
                   placeholder="e.g. 230226"
                   onChangeText={(value: string) => {
-                    stateRef.current = value;
+                    codeRef.current = value;
                     console.log("Postal code: ", value);
                   }}
                   label="State/Province"

@@ -41,6 +41,24 @@ export interface InputProps extends TextInputProps {
   //   error?: string;
 }
 
+export interface Member {
+  id: string;
+  email: string;
+  role: string;
+}
+
+export interface TeamMemberCardProps {
+  member: Member;
+  index: number;
+  isFirst?: boolean;
+  onRemove: (id: string) => void;
+  onUpdate: (id: string, field: "email" | "role", value: string) => void;
+}
+
+export interface AddMemberButtonProps {
+  onPress: () => void;
+}
+
 export interface DecodedTokenProps {
   user: UserProps;
   exp: number;
