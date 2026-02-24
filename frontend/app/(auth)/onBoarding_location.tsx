@@ -36,7 +36,7 @@ function OnBoarding_location() {
     //   );
     //   return;
     // }
-    router.push("/(auth)/onBoarding_location");
+    router.push("/(auth)/onBoarding_team");
     console.log("To onboarding team screen...");
   };
 
