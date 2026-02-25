@@ -6,24 +6,34 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 
 const Input = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
+  const {
+    icon,
+    containerStyle,
+    wrapperStyle,
+    inputStyle,
+    inputRef,
+    label,
+    ...textInputProps
+  } = props;
+
   return (
-    <View style={[styles.wrapper, props.wrapperStyle]}>
-      {props.label && <Text style={styles.label}>{props.label}</Text>}
+    <View style={[styles.wrapper, wrapperStyle]}>
+      {label && <Text style={styles.label}>{label}</Text>}
       <View
         style={[
           styles.container,
-          props.containerStyle && props.containerStyle,
+          containerStyle && containerStyle,
           isFocused && styles.primaryBorder,
         ]}
       >
-        {props.icon && props.icon}
+        {icon && icon}
         <TextInput
-          style={[styles.input, props.inputStyle]}
+          style={[styles.input, inputStyle]}
           placeholderTextColor={palette.neutral400}
-          ref={props.inputRef && props.inputRef}
+          ref={inputRef && inputRef}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          {...props}
+          {...textInputProps}
         />
       </View>
     </View>

@@ -21,14 +21,14 @@ function Welcome() {
         </View>
 
         <View style={styles.bottom}>
-          <View style={[styles.rowOne, styles.row]}>
+          <View style={styles.row}>
             <Typo size={13} style={{ textAlign: "center" }}>
               Streamline your site operations, manage your workforce, and track
               progress in real-time.
             </Typo>
           </View>
 
-          <View style={[styles.rowTow, styles.row]}>
+          <View style={styles.row}>
             <View style={styles.btn}>
               <DefaultButton onPress={() => router.push("/(auth)/onBoarding")}>
                 <Typo size={20} fontWeight={"bold"}>
@@ -57,7 +57,7 @@ function Welcome() {
             </View>
           </View>
 
-          <View style={[styles.rowThree, styles.row]}>
+          <View style={styles.row}>
             <Typo
               size={13}
               color={palette.neutral400}

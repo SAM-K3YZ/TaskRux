@@ -1,15 +1,15 @@
-import { AddMemberButton } from "@/components/AddMemberButton";
 import BackButton from "@/components/BackButton";
 import DefaultButton from "@/components/DefaultButton";
+import Input from "@/components/Input";
 import OnboardingStep from "@/components/OnboardngStep";
+import QuickSettings from "@/components/QuickSettings";
 import ScreenWrapper from "@/components/ScreenWrapper";
-import TeamMemberCard from "@/components/TeamMemberCard";
 import Typo from "@/components/Typo";
 import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
 import { verticalScale } from "@/utils/styling";
 import { useRouter } from "expo-router";
 import * as Icons from "phosphor-react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -18,7 +18,9 @@ import {
   View,
 } from "react-native";
 
-function OnBoarding_team() {
+function OnBoarding_projectLanunch() {
+  const nameRef = useRef("");
+  const siteRef = useRef("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async () => {
@@ -26,26 +28,15 @@ function OnBoarding_team() {
     router.push("/(auth)/onBoarding_projectLanunch");
     console.log("To onboarding project launch screen...");
   };
-
-  const [members, setMembers] = useState([
-    { id: "1", email: "", role: "supervisor" },
+  const [selectedSettings, setSelectedSettings] = React.useState<string[]>([
+    "alerts",
   ]);
-
-  const addMember = () => {
-    setMembers((prev) => [
-      ...prev,
-      { id: Date.now().toString(), email: "", role: "worker" },
-    ]);
-  };
-
-  const removeMember = (id: string) => {
-    setMembers((prev) => prev.filter((m) => m.id !== id));
-  };
-
-  const updateMember = (id: string, field: "email" | "role", value: string) => {
-    setMembers((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, [field]: value } : m)),
-    );
+  const handleToggle = (id: string, checked: boolean) => {
+    if (checked) {
+      setSelectedSettings((prev) => [...prev, id]);
+    } else {
+      setSelectedSettings((prev) => prev.filter((item) => item !== id));
+    }
   };
 
   return (
@@ -65,7 +56,7 @@ function OnBoarding_team() {
           {/*Progressional steps */}
           <View>
             <View style={styles.steps}>
-              <OnboardingStep step={3} totalSteps={4} />
+              <OnboardingStep step={4} totalSteps={4} />
             </View>
           </View>
         </View>
@@ -87,63 +78,92 @@ function OnBoarding_team() {
               {/* Header text*/}
               <View>
                 <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
-                  Build Your Crew
+                  Launch Your First Project
                 </Typo>
                 <Typo size={14} color={palette.neutral600}>
-                  invite key personnel to manage sites and tasks. Assign roles
-                  now to streamline site safety and operations.
+                  {
+                    " You're all set! Create a quick project profile to start tracking site activities immediatiely."
+                  }
                 </Typo>
               </View>
             </View>
 
             <View style={styles.textInputs}>
-              {/*Cards Input*/}
-              {members.map((member, index) => (
-                <TeamMemberCard
-                  key={member.id}
-                  member={member}
-                  index={index}
-                  isFirst={index === 0 && members.length === 1}
-                  onRemove={removeMember}
-                  onUpdate={updateMember}
-                />
-              ))}
-            </View>
-
-            <View style={styles.addBtn}>
-              {/*New Member Button */}
-              <AddMemberButton onPress={addMember} />
-            </View>
-
-            {/*Footer*/}
-            <View style={styles.footer}>
-              {/*Next Button*/}
-              <View style={styles.nextBtn}>
-                <DefaultButton loading={isLoading} onPress={handleSubmit}>
-                  <Typo
-                    fontWeight={"bold"}
-                    color={light.textOnPrimary}
-                    size={20}
-                  >
-                    Finish Setup
-                  </Typo>
-                  <View style={styles.btnIcon}>
-                    <Icons.ArrowRightIcon
+              {/* Text Inputs*/}
+              <Input
+                placeholder="e.g. Downtown Pffoce Renovation"
+                onChangeText={(value: string) => {
+                  nameRef.current = value;
+                  console.log("project name: ", value);
+                }}
+                label="Project Name"
+                icon={
+                  <Icons.UserIcon
+                    size={verticalScale(26)}
+                    color={palette.neutral600}
+                  />
+                }
+              />
+              <Input
+                placeholder="e.g. 123 Main St, Springfield"
+                onChangeText={(value: string) => {
+                  siteRef.current = value;
+                  console.log("site address: ", value);
+                }}
+                label="Site Address"
+                icon={
+                  <Icons.MapPinIcon
+                    size={verticalScale(26)}
+                    color={palette.neutral600}
+                  />
+                }
+              />
+              <QuickSettings
+                items={[
+                  {
+                    id: "alerts",
+                    label: "Enable Alerts",
+                    icon: Icons.BellIcon,
+                  },
+                  {
+                    id: "crew",
+                    label: "Auto-assign Crew",
+                    icon: Icons.UserIcon,
+                  },
+                ]}
+                selected={selectedSettings}
+                onToggle={handleToggle}
+              />
+              <View style={styles.footer}>
+                {/*Next Button*/}
+                <View style={styles.nextBtn}>
+                  <DefaultButton loading={isLoading} onPress={handleSubmit}>
+                    <Typo
+                      fontWeight={"bold"}
                       color={light.textOnPrimary}
                       size={20}
-                    />
-                  </View>
-                </DefaultButton>
-              </View>
+                    >
+                      Start Managing
+                    </Typo>
 
-              {/* Email Invite text*/}
-              <Typo
-                size={10}
-                color={light.textSecondary}
-                style={styles.footerTxt}
-              >
-                Invites will be sent voa email immediately.
-              </Typo>
+                    <View style={styles.btnIcon}>
+                      <Icons.CheckCircleIcon
+                        color={light.textOnPrimary}
+                        size={20}
+                      />
+                    </View>
+                  </DefaultButton>
+                </View>
+
+                {/* Email Invite text*/}
+                <Typo
+                  size={10}
+                  color={light.textSecondary}
+                  style={styles.footerTxt}
+                >
+                  Your 14-day trial begins when you create your first project.
+                </Typo>
+              </View>
             </View>
           </ScrollView>
         </View>
@@ -152,7 +172,7 @@ function OnBoarding_team() {
   );
 }
 
-export default OnBoarding_team;
+export default OnBoarding_projectLanunch;
 
 const styles = StyleSheet.create({
   container: {
@@ -186,26 +206,6 @@ const styles = StyleSheet.create({
   textInputs: {
     gap: spacingY._15,
     marginTop: spacingX._15,
-  },
-  mapArea: {
-    height: 120,
-    marginTop: spacingY._10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  mapButton: {
-    columnGap: spacingX._5,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  twoInputs: {
-    flexDirection: "row",
-    gap: spacingX._10,
-  },
-  addBtn: {
-    marginTop: spacingY._20,
-    marginBottom: spacingY._35,
   },
   nextBtn: {
     marginTop: spacingY._25,

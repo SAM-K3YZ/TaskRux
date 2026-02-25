@@ -59,6 +59,19 @@ export interface AddMemberButtonProps {
   onPress: () => void;
 }
 
+export type QuickSettingItem = {
+  id: string;
+  label: string;
+  icon?: React.ComponentType<any>;
+};
+
+export interface QuickSettingsProps {
+  items: QuickSettingItem[];
+  selected: string[];
+  onToggle: (id: string, checked: boolean) => void;
+  containerStyle?: ViewStyle;
+}
+
 export interface DecodedTokenProps {
   user: UserProps;
   exp: number;
@@ -70,11 +83,7 @@ export interface RadioInputProps {
   value: string;
   selectedValue: string;
   onPress: (value: string) => void;
-  icon?: React.ComponentType<{
-    size?: number;
-    color?: string;
-    weight?: string;
-  }>;
+  icon?: React.ComponentType<any>;
   containerStyle?: ViewStyle;
   disabled?: boolean;
 }
