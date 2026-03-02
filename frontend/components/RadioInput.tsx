@@ -1,9 +1,9 @@
-import { light, palette, radius, spacingX } from "@/constants/theme";
-import { RadioInputProps } from "@/types";
-import { verticalScale } from "@/utils/styling";
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import Typo from "./Typo";
+import { light, palette, radius, spacingX } from '@/constants/theme';
+import { RadioInputProps } from '@/types';
+import { verticalScale } from '@/utils/styling';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Typo from './Typo';
 
 const RadioInput = ({
   label,
@@ -41,7 +41,7 @@ const RadioInput = ({
           {React.createElement(icon, {
             size: verticalScale(20),
             color: isSelected ? light.primary : palette.neutral600,
-            weight: isSelected ? "fill" : "regular",
+            weight: isSelected ? 'fill' : 'regular',
           })}
         </View>
       )}
@@ -49,7 +49,7 @@ const RadioInput = ({
       {/* Label */}
       <Typo
         size={16}
-        fontWeight={isSelected ? "600" : "500"}
+        fontWeight={isSelected ? '600' : '500'}
         color={isSelected ? light.primary : light.textPrimary}
         style={styles.label}
       >
@@ -63,8 +63,8 @@ export default RadioInput;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     height: verticalScale(56),
     paddingHorizontal: spacingX._15,
     borderWidth: 1.5,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 
   selectedContainer: {
     borderColor: light.primary,
-    backgroundColor: "#fff7ed",
+    backgroundColor: '#fff7ed',
   },
 
   disabled: {
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: palette.neutral400,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginRight: spacingX._12,
   },
 
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
 
   iconWrapper: {
     marginRight: spacingX._12,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   label: {

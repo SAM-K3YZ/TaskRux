@@ -1,7 +1,7 @@
-import { light, radius, spacingY } from "@/constants/theme";
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import Typo from "./Typo";
+import { light, radius, spacingY } from '@/constants/theme';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Typo from './Typo';
 
 interface OnboardingStepProps {
   step: number;
@@ -13,7 +13,7 @@ function OnboardingStep({ step, totalSteps }: OnboardingStepProps) {
 
   return (
     <View style={styles.wrapper}>
-      <Typo color={light.primaryDark} fontWeight={"bold"} size={13}>
+      <Typo color={light.primaryDark} fontWeight={'bold'} size={13}>
         Step {String(step)} of {String(totalSteps)}
       </Typo>
       <View style={styles.track}>
@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
     height: spacingY._7,
     backgroundColor: light.border,
     borderRadius: radius.full,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   fill: {
-    height: "100%",
+    height: '100%',
     backgroundColor: light.primary,
     borderRadius: radius.full,
   },

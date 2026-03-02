@@ -1,13 +1,13 @@
-import { dark } from "@/constants/theme";
-import { TypoProps } from "@/types";
-import { verticalScale } from "@/utils/styling";
-import React from "react";
-import { StyleSheet, Text, TextStyle } from "react-native";
+import { dark } from '@/constants/theme';
+import { TypoProps } from '@/types';
+import { verticalScale } from '@/utils/styling';
+import React from 'react';
+import { StyleSheet, Text, TextStyle } from 'react-native';
 
 const Typo = ({
   size = 16,
   color = dark.textOnPrimary,
-  fontWeight = "400",
+  fontWeight = '400',
   children,
   style,
   textProps = {},

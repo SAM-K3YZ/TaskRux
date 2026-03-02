@@ -1,14 +1,14 @@
-import BackButton from "@/components/BackButton";
-import DefaultButton from "@/components/DefaultButton";
-import Input from "@/components/Input";
-import OnboardingStep from "@/components/OnboardngStep";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import Typo from "@/components/Typo";
-import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import { useRouter } from "expo-router";
-import * as Icons from "phosphor-react-native";
-import React, { useRef, useState } from "react";
+import BackButton from '@/components/BackButton';
+import DefaultButton from '@/components/DefaultButton';
+import Input from '@/components/Input';
+import OnboardingStep from '@/components/OnboardngStep';
+import ScreenWrapper from '@/components/ScreenWrapper';
+import Typo from '@/components/Typo';
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
+import { verticalScale } from '@/utils/styling';
+import { useRouter } from 'expo-router';
+import * as Icons from 'phosphor-react-native';
+import React, { useRef, useState } from 'react';
 import {
   Alert,
   ImageBackground,
@@ -18,13 +18,13 @@ import {
   ScrollView,
   StyleSheet,
   View,
-} from "react-native";
+} from 'react-native';
 
 function OnBoarding_location() {
-  const addressRef = useRef("");
-  const cityRef = useRef("");
-  const stateRef = useRef("");
-  const codeRef = useRef("");
+  const addressRef = useRef('');
+  const cityRef = useRef('');
+  const stateRef = useRef('');
+  const codeRef = useRef('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async () => {
@@ -35,15 +35,15 @@ function OnBoarding_location() {
     //   );
     //   return;
     // }
-    router.push("/(auth)/onBoarding_team");
-    console.log("To onboarding team screen...");
+    router.push('/(auth)/onBoarding_team');
+    console.log('To onboarding team screen...');
   };
 
   const viewMap = async () => {
     try {
-      Alert.alert("Map", "Feature coming soon");
+      Alert.alert('Map', 'Feature coming soon');
     } catch (error) {
-      Alert.alert("Error", "Failed to upload file");
+      Alert.alert('Error', 'Failed to upload file');
       console.error(error);
     }
   };
@@ -51,7 +51,7 @@ function OnBoarding_location() {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenWrapper>
         <View style={styles.container}>
@@ -87,7 +87,7 @@ function OnBoarding_location() {
                 </View>
                 {/* Header text*/}
                 <View>
-                  <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
+                  <Typo size={28} fontWeight={'600'} color={light.textPrimary}>
                     Where are you based?
                   </Typo>
                   <Typo size={14} color={palette.neutral600}>
@@ -103,7 +103,7 @@ function OnBoarding_location() {
                   placeholder="e.g. 123 Construction Way..."
                   onChangeText={(value: string) => {
                     addressRef.current = value;
-                    console.log("Address: ", value);
+                    console.log('Address: ', value);
                   }}
                   label="Headquaters Address"
                   style={{ flex: 1 }}
@@ -116,7 +116,7 @@ function OnBoarding_location() {
                 />
                 {/*Map */}
                 <ImageBackground
-                  source={require("../../assets/images/map_image_wrapper.png")}
+                  source={require('../../assets/images/map_image_wrapper.png')}
                   style={styles.mapArea}
                   imageStyle={{ borderRadius: radius._15 }}
                 >
@@ -129,7 +129,7 @@ function OnBoarding_location() {
                       <Typo
                         color={light.primary}
                         size={verticalScale(14)}
-                        fontWeight={"bold"}
+                        fontWeight={'bold'}
                       >
                         Verify Location on Map
                       </Typo>
@@ -138,7 +138,7 @@ function OnBoarding_location() {
                   <Typo
                     color={palette.neutral400}
                     size={verticalScale(12)}
-                    fontWeight={"semibold"}
+                    fontWeight={'semibold'}
                   >
                     Tap to pin exact location
                   </Typo>
@@ -168,7 +168,7 @@ function OnBoarding_location() {
                   placeholder="e.g. 230226"
                   onChangeText={(value: string) => {
                     codeRef.current = value;
-                    console.log("Postal code: ", value);
+                    console.log('Postal code: ', value);
                   }}
                   label="State/Province"
                   style={{ flex: 1 }}
@@ -181,7 +181,7 @@ function OnBoarding_location() {
                 <View style={styles.nextBtn}>
                   <DefaultButton loading={isLoading} onPress={handleSubmit}>
                     <Typo
-                      fontWeight={"bold"}
+                      fontWeight={'bold'}
                       color={light.textOnPrimary}
                       size={20}
                     >
@@ -217,12 +217,12 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingBottom: spacingY._15,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerContainer: {
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     padding: spacingY._15,
     backgroundColor: light.primaryLight,
     borderRadius: radius._15,
@@ -241,17 +241,17 @@ const styles = StyleSheet.create({
   mapArea: {
     height: 120,
     marginTop: spacingY._10,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   mapButton: {
     columnGap: spacingX._5,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   twoInputs: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: spacingX._10,
   },
   nextBtn: {
@@ -267,6 +267,6 @@ const styles = StyleSheet.create({
   footerTxt: {
     marginTop: spacingY._10,
 
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

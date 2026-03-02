@@ -1,7 +1,7 @@
-import { dark, palette } from "@/constants/theme";
-import { useRouter } from "expo-router";
-import { useEffect, useRef } from "react";
-import { Animated, StyleSheet, View } from "react-native";
+import { dark, palette } from '@/constants/theme';
+import { useRouter } from 'expo-router';
+import { useEffect, useRef } from 'react';
+import { Animated, StyleSheet, View } from 'react-native';
 
 export default function SplashScreen() {
   const opacity = useRef<Animated.Value>(new Animated.Value(0)).current;
@@ -23,7 +23,7 @@ export default function SplashScreen() {
     ]).start();
 
     setTimeout(() => {
-      router.replace("/(auth)/welcome");
+      router.replace('/(auth)/welcome');
     }, 1500);
   }, []);
 
@@ -41,13 +41,13 @@ export default function SplashScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: palette.brandOrange,
   },
   title: {
     fontSize: 70,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: dark.textOnPrimary,
   },
 });

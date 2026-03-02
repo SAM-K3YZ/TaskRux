@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-function welcomeBack() {
+const WorkersScreen = () => {
   return (
     <View>
-      <Text>welcomeBack</Text>
+      <Text>WorkersScreen</Text>
     </View>
   );
-}
+};
 
-export default welcomeBack;
+export default WorkersScreen;
 
 const styles = StyleSheet.create({});

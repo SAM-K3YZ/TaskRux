@@ -1,48 +1,48 @@
-import { scale, verticalScale } from "@/utils/styling";
+import { scale, verticalScale } from '@/utils/styling';
 
 export const palette = {
   // Brand
-  brandOrange: "#F96706",
-  brandOrangeLight: "#FAB87A",
-  brandOrangeDark: "#D94F00",
+  brandOrange: '#F96706',
+  brandOrangeLight: '#FAB87A',
+  brandOrangeDark: '#D94F00',
 
   // Navy (from design system deep navy)
-  navy900: "#1E2938",
-  navy800: "#263445",
-  navy700: "#2E3F55",
+  navy900: '#1E2938',
+  navy800: '#263445',
+  navy700: '#2E3F55',
 
   // Neutrals (warm stone — your existing scale)
-  neutral50: "#fafaf9",
-  neutral100: "#f5f5f4",
-  neutral200: "#e7e5e4",
-  neutral300: "#d6d3d1",
-  neutral350: "#CCCCCC",
-  neutral400: "#a8a29e",
-  neutral500: "#78716c",
-  neutral600: "#57534e",
-  neutral700: "#44403c",
-  neutral800: "#292524",
-  neutral900: "#1c1917",
+  neutral50: '#fafaf9',
+  neutral100: '#f5f5f4',
+  neutral200: '#e7e5e4',
+  neutral300: '#d6d3d1',
+  neutral350: '#CCCCCC',
+  neutral400: '#a8a29e',
+  neutral500: '#78716c',
+  neutral600: '#57534e',
+  neutral700: '#44403c',
+  neutral800: '#292524',
+  neutral900: '#1c1917',
 
   // Dark surface tokens (from dark mode design system)
-  darkBase: "#23170f", // outermost background
-  darkSurface: "#1a110b", // card / input fill
-  darkDeep: "#130d07", // deeply nested elements
+  darkBase: '#23170f', // outermost background
+  darkSurface: '#1a110b', // card / input fill
+  darkDeep: '#130d07', // deeply nested elements
 
   // Semantic
-  white: "#ffffff",
-  black: "#000000",
-  successGreen: "#22C55E",
-  errorRed: "#EF4444",
+  white: '#ffffff',
+  black: '#000000',
+  successGreen: '#22C55E',
+  errorRed: '#EF4444',
 
   // Chat bubbles (your existing)
-  otherBubble: "#FFF1BF",
-  myBubble: "#FFE1CC",
+  otherBubble: '#FFF1BF',
+  myBubble: '#FFE1CC',
 
   // Legacy yellow (your existing primary — keep if needed)
-  yellow: "#facc15",
-  yellowLight: "#fef08a",
-  yellowDark: "#eab308",
+  yellow: '#facc15',
+  yellowLight: '#fef08a',
+  yellowDark: '#eab308',
 };
 
 // ----------------------------------------------------------
@@ -82,11 +82,11 @@ export const light = {
 
   // States
   success: palette.successGreen, // #22C55E
-  successBg: "#dcfce7",
+  successBg: '#dcfce7',
   error: palette.errorRed, // #EF4444
-  errorBg: "#fee2e2",
+  errorBg: '#fee2e2',
   warning: palette.yellow,
-  warningBg: "#fefce8",
+  warningBg: '#fefce8',
 
   // Toggle / Switch
   toggleActive: palette.brandOrange,
@@ -98,9 +98,9 @@ export const light = {
   bubbleMine: palette.myBubble, // #FFE1CC
 
   // Misc
-  shadow: "rgba(0,0,0,0.08)",
-  shadowStrong: "rgba(0,0,0,0.16)",
-  scrim: "rgba(0,0,0,0.4)",
+  shadow: 'rgba(0,0,0,0.08)',
+  shadowStrong: 'rgba(0,0,0,0.16)',
+  scrim: 'rgba(0,0,0,0.4)',
 };
 
 // ----------------------------------------------------------
@@ -110,7 +110,7 @@ export const dark = {
   // Background layers
   background: palette.darkBase, // #23170f — page bg
   surface: palette.darkSurface, // #1a110b — card bg
-  surfaceRaised: "#1f1409", // slightly lighter card
+  surfaceRaised: '#1f1409', // slightly lighter card
   overlay: palette.darkDeep, // #130d07 — deeply nested
 
   // Brand / Actions
@@ -127,24 +127,24 @@ export const dark = {
   textOnPrimary: palette.white, // text on orange bg
 
   // Borders & Dividers
-  border: "#2a1d12", // subtle warm dark border
-  borderStrong: "#3a2a1a", // more visible
+  border: '#2a1d12', // subtle warm dark border
+  borderStrong: '#3a2a1a', // more visible
   borderFocus: palette.brandOrange, // #F96706
 
   // Form inputs
   inputBg: palette.darkSurface, // #1a110b
-  inputBorder: "#2a1d12",
+  inputBorder: '#2a1d12',
   inputBorderFocus: palette.brandOrange,
   inputBorderError: palette.errorRed,
   inputPlaceholder: palette.neutral600,
 
   // States
   success: palette.successGreen, // #22C55E
-  successBg: "#052e16",
+  successBg: '#052e16',
   error: palette.errorRed, // #EF4444
-  errorBg: "#450a0a",
+  errorBg: '#450a0a',
   warning: palette.yellow,
-  warningBg: "#422006",
+  warningBg: '#422006',
 
   // Toggle / Switch
   toggleActive: palette.brandOrange,
@@ -152,13 +152,13 @@ export const dark = {
   toggleThumb: palette.white,
 
   // Chat bubbles
-  bubbleOther: "#2a1e0e", // darkened warm tint
-  bubbleMine: "#231508", // darkened peach tint
+  bubbleOther: '#2a1e0e', // darkened warm tint
+  bubbleMine: '#231508', // darkened peach tint
 
   // Misc
-  shadow: "rgba(0,0,0,0.4)",
-  shadowStrong: "rgba(0,0,0,0.7)",
-  scrim: "rgba(0,0,0,0.6)",
+  shadow: 'rgba(0,0,0,0.4)',
+  shadowStrong: 'rgba(0,0,0,0.7)',
+  scrim: 'rgba(0,0,0,0.6)',
 };
 
 export const spacingX = {

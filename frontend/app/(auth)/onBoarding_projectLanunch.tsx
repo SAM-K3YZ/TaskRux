@@ -1,35 +1,35 @@
-import BackButton from "@/components/BackButton";
-import DefaultButton from "@/components/DefaultButton";
-import Input from "@/components/Input";
-import OnboardingStep from "@/components/OnboardngStep";
-import QuickSettings from "@/components/QuickSettings";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import Typo from "@/components/Typo";
-import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import { useRouter } from "expo-router";
-import * as Icons from "phosphor-react-native";
-import React, { useRef, useState } from "react";
+import BackButton from '@/components/BackButton';
+import DefaultButton from '@/components/DefaultButton';
+import Input from '@/components/Input';
+import OnboardingStep from '@/components/OnboardngStep';
+import QuickSettings from '@/components/QuickSettings';
+import ScreenWrapper from '@/components/ScreenWrapper';
+import Typo from '@/components/Typo';
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
+import { verticalScale } from '@/utils/styling';
+import { useRouter } from 'expo-router';
+import * as Icons from 'phosphor-react-native';
+import React, { useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StyleSheet,
   View,
-} from "react-native";
+} from 'react-native';
 
 function OnBoarding_projectLanunch() {
-  const nameRef = useRef("");
-  const siteRef = useRef("");
+  const nameRef = useRef('');
+  const siteRef = useRef('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async () => {
     //logic
-    router.push("/(auth)/onBoarding_projectLanunch");
-    console.log("To onboarding project launch screen...");
+    router.push('/(tabs)');
+    console.log('To onboarding home screen...');
   };
   const [selectedSettings, setSelectedSettings] = React.useState<string[]>([
-    "alerts",
+    'alerts',
   ]);
   const handleToggle = (id: string, checked: boolean) => {
     if (checked) {
@@ -42,7 +42,7 @@ function OnBoarding_projectLanunch() {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenWrapper style={styles.container}>
         {/*Screen Top */}
@@ -77,7 +77,7 @@ function OnBoarding_projectLanunch() {
               </View>
               {/* Header text*/}
               <View>
-                <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
+                <Typo size={28} fontWeight={'600'} color={light.textPrimary}>
                   Launch Your First Project
                 </Typo>
                 <Typo size={14} color={palette.neutral600}>
@@ -94,7 +94,7 @@ function OnBoarding_projectLanunch() {
                 placeholder="e.g. Downtown Pffoce Renovation"
                 onChangeText={(value: string) => {
                   nameRef.current = value;
-                  console.log("project name: ", value);
+                  console.log('project name: ', value);
                 }}
                 label="Project Name"
                 icon={
@@ -108,7 +108,7 @@ function OnBoarding_projectLanunch() {
                 placeholder="e.g. 123 Main St, Springfield"
                 onChangeText={(value: string) => {
                   siteRef.current = value;
-                  console.log("site address: ", value);
+                  console.log('site address: ', value);
                 }}
                 label="Site Address"
                 icon={
@@ -121,13 +121,13 @@ function OnBoarding_projectLanunch() {
               <QuickSettings
                 items={[
                   {
-                    id: "alerts",
-                    label: "Enable Alerts",
+                    id: 'alerts',
+                    label: 'Enable Alerts',
                     icon: Icons.BellIcon,
                   },
                   {
-                    id: "crew",
-                    label: "Auto-assign Crew",
+                    id: 'crew',
+                    label: 'Auto-assign Crew',
                     icon: Icons.UserIcon,
                   },
                 ]}
@@ -139,7 +139,7 @@ function OnBoarding_projectLanunch() {
                 <View style={styles.nextBtn}>
                   <DefaultButton loading={isLoading} onPress={handleSubmit}>
                     <Typo
-                      fontWeight={"bold"}
+                      fontWeight={'bold'}
                       color={light.textOnPrimary}
                       size={20}
                     >
@@ -186,12 +186,12 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingBottom: spacingY._15,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerContainer: {
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     padding: spacingY._15,
     backgroundColor: light.primaryLight,
     borderRadius: radius._15,
@@ -220,6 +220,6 @@ const styles = StyleSheet.create({
   footerTxt: {
     marginTop: spacingY._10,
 
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

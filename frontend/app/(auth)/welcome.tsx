@@ -1,12 +1,12 @@
-import DefaultButton from "@/components/DefaultButton";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import Typo from "@/components/Typo";
-import { dark, palette, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import { FontAwesome6 } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import DefaultButton from '@/components/DefaultButton';
+import ScreenWrapper from '@/components/ScreenWrapper';
+import Typo from '@/components/Typo';
+import { dark, palette, spacingX, spacingY } from '@/constants/theme';
+import { verticalScale } from '@/utils/styling';
+import { FontAwesome6 } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 function Welcome() {
   const router = useRouter();
@@ -14,7 +14,7 @@ function Welcome() {
     <ScreenWrapper showBg={true} bgOpacity={0.5}>
       <View style={styles.container}>
         <View style={styles.top}>
-          <Typo size={64} fontWeight={"bold"}>
+          <Typo size={64} fontWeight={'bold'}>
             TaskRux
           </Typo>
           <Typo>Build Smarter, Manage Better.</Typo>
@@ -22,7 +22,7 @@ function Welcome() {
 
         <View style={styles.bottom}>
           <View style={styles.row}>
-            <Typo size={13} style={{ textAlign: "center" }}>
+            <Typo size={13} style={{ textAlign: 'center' }}>
               Streamline your site operations, manage your workforce, and track
               progress in real-time.
             </Typo>
@@ -30,8 +30,8 @@ function Welcome() {
 
           <View style={styles.row}>
             <View style={styles.btn}>
-              <DefaultButton onPress={() => router.push("/(auth)/onBoarding")}>
-                <Typo size={20} fontWeight={"bold"}>
+              <DefaultButton onPress={() => router.push('/(auth)/onBoarding')}>
+                <Typo size={20} fontWeight={'bold'}>
                   Get Started
                 </Typo>
 
@@ -48,9 +48,9 @@ function Welcome() {
               <Typo size={16}>Already have an account?</Typo>
               <Pressable
                 style={styles.signInBtn}
-                onPress={() => router.push("/(auth)/welcomeBack")}
+                onPress={() => router.push('/(auth)/welcomeBack')}
               >
-                <Typo size={16} fontWeight={"bold"} color={palette.brandOrange}>
+                <Typo size={16} fontWeight={'bold'} color={palette.brandOrange}>
                   Sign In
                 </Typo>
               </Pressable>
@@ -78,7 +78,7 @@ export default Welcome;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     paddingHorizontal: spacingX._20,
     paddingVertical: spacingY._10,
   },
@@ -89,15 +89,15 @@ const styles = StyleSheet.create({
   welcomeImage: {
     height: verticalScale(300),
     aspectRatio: 1,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   top: {
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: spacingY._10,
   },
   bottom: {
     marginBottom: spacingY._10,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   },
   row: {
     marginBottom: spacingX._25,
@@ -109,13 +109,13 @@ const styles = StyleSheet.create({
     marginStart: spacingY._10,
   },
   toSignIn: {
-    justifyContent: "center",
-    flexDirection: "row",
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
   signInBtn: {
     marginStart: spacingY._10,
   },
   agreementText: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

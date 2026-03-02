@@ -1,8 +1,8 @@
-import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
-import { InputProps } from "@/types";
-import { verticalScale } from "@/utils/styling";
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
+import { InputProps } from '@/types';
+import { verticalScale } from '@/utils/styling';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 const Input = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -49,18 +49,18 @@ const styles = StyleSheet.create({
   label: {
     fontSize: verticalScale(16),
     color: light.textPrimary,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingLeft: spacingX._5,
   },
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     height: verticalScale(56),
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: palette.neutral200,
     borderRadius: radius.full,
-    borderCurve: "continuous",
+    borderCurve: 'continuous',
     paddingHorizontal: spacingX._15,
     backgroundColor: palette.neutral100,
     gap: spacingX._10,

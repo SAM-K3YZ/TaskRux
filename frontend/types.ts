@@ -1,5 +1,5 @@
-import { Router } from "expo-router";
-import React, { ReactNode } from "react";
+import { Router } from 'expo-router';
+import React, { ReactNode } from 'react';
 import {
   TextInput,
   TextInputProps,
@@ -7,12 +7,12 @@ import {
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
-} from "react-native";
+} from 'react-native';
 
 export type TypoProps = {
   size?: number;
   color?: string;
-  fontWeight?: TextStyle["fontWeight"];
+  fontWeight?: TextStyle['fontWeight'];
   children: any | null;
   style?: TextStyle;
   textProps?: TextProps;
@@ -52,7 +52,7 @@ export interface TeamMemberCardProps {
   index: number;
   isFirst?: boolean;
   onRemove: (id: string) => void;
-  onUpdate: (id: string, field: "email" | "role", value: string) => void;
+  onUpdate: (id: string, field: 'email' | 'role', value: string) => void;
 }
 
 export interface AddMemberButtonProps {
@@ -152,7 +152,7 @@ export type ConversationListItemProps = {
 
 export type ConversationProps = {
   _id: string;
-  type: "direct" | "group";
+  type: 'direct' | 'group';
   avatar: string | null;
   participants: {
     _id: string;
@@ -165,7 +165,7 @@ export type ConversationProps = {
     _id: string;
     content: string;
     senderId: string;
-    type: "text" | "image" | "file";
+    type: 'text' | 'image' | 'file';
     attachment?: string;
     createdAt: string;
   };

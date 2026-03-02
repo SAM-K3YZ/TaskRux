@@ -1,40 +1,40 @@
-import { AddMemberButton } from "@/components/AddMemberButton";
-import BackButton from "@/components/BackButton";
-import DefaultButton from "@/components/DefaultButton";
-import OnboardingStep from "@/components/OnboardngStep";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import TeamMemberCard from "@/components/TeamMemberCard";
-import Typo from "@/components/Typo";
-import { light, palette, radius, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import { useRouter } from "expo-router";
-import * as Icons from "phosphor-react-native";
-import React, { useState } from "react";
+import { AddMemberButton } from '@/components/AddMemberButton';
+import BackButton from '@/components/BackButton';
+import DefaultButton from '@/components/DefaultButton';
+import OnboardingStep from '@/components/OnboardngStep';
+import ScreenWrapper from '@/components/ScreenWrapper';
+import TeamMemberCard from '@/components/TeamMemberCard';
+import Typo from '@/components/Typo';
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
+import { verticalScale } from '@/utils/styling';
+import { useRouter } from 'expo-router';
+import * as Icons from 'phosphor-react-native';
+import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   StyleSheet,
   View,
-} from "react-native";
+} from 'react-native';
 
 function OnBoarding_team() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async () => {
     //logic
-    router.push("/(auth)/onBoarding_projectLanunch");
-    console.log("To onboarding project launch screen...");
+    router.push('/(auth)/onBoarding_projectLanunch');
+    console.log('To onboarding project launch screen...');
   };
 
   const [members, setMembers] = useState([
-    { id: "1", email: "", role: "supervisor" },
+    { id: '1', email: '', role: 'supervisor' },
   ]);
 
   const addMember = () => {
     setMembers((prev) => [
       ...prev,
-      { id: Date.now().toString(), email: "", role: "worker" },
+      { id: Date.now().toString(), email: '', role: 'worker' },
     ]);
   };
 
@@ -42,7 +42,7 @@ function OnBoarding_team() {
     setMembers((prev) => prev.filter((m) => m.id !== id));
   };
 
-  const updateMember = (id: string, field: "email" | "role", value: string) => {
+  const updateMember = (id: string, field: 'email' | 'role', value: string) => {
     setMembers((prev) =>
       prev.map((m) => (m.id === id ? { ...m, [field]: value } : m)),
     );
@@ -51,7 +51,7 @@ function OnBoarding_team() {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScreenWrapper style={styles.container}>
         {/*Screen Top */}
@@ -86,7 +86,7 @@ function OnBoarding_team() {
               </View>
               {/* Header text*/}
               <View>
-                <Typo size={28} fontWeight={"600"} color={light.textPrimary}>
+                <Typo size={28} fontWeight={'600'} color={light.textPrimary}>
                   Build Your Crew
                 </Typo>
                 <Typo size={14} color={palette.neutral600}>
@@ -121,7 +121,7 @@ function OnBoarding_team() {
               <View style={styles.nextBtn}>
                 <DefaultButton loading={isLoading} onPress={handleSubmit}>
                   <Typo
-                    fontWeight={"bold"}
+                    fontWeight={'bold'}
                     color={light.textOnPrimary}
                     size={20}
                   >
@@ -166,12 +166,12 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingBottom: spacingY._15,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   headerContainer: {
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     padding: spacingY._15,
     backgroundColor: light.primaryLight,
     borderRadius: radius._15,
@@ -190,17 +190,17 @@ const styles = StyleSheet.create({
   mapArea: {
     height: 120,
     marginTop: spacingY._10,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   mapButton: {
     columnGap: spacingX._5,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   twoInputs: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: spacingX._10,
   },
   addBtn: {
@@ -220,6 +220,6 @@ const styles = StyleSheet.create({
   footerTxt: {
     marginTop: spacingY._10,
 
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

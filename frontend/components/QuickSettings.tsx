@@ -1,6 +1,6 @@
-import { QuickSettingsProps } from "@/types";
-import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { QuickSettingsProps } from '@/types';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const QuickSettings = ({
   items,
@@ -30,7 +30,7 @@ const QuickSettings = ({
               <Icon
                 size={26}
                 color="#FF6A00"
-                weight={isSelected ? "fill" : "regular"}
+                weight={isSelected ? 'fill' : 'regular'}
               />
             )}
 
@@ -52,42 +52,42 @@ export default QuickSettings;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 12,
   },
   card: {
     flex: 1,
     borderWidth: 1.5,
-    borderColor: "#FF6A00",
+    borderColor: '#FF6A00',
     borderRadius: 16,
     paddingVertical: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    position: "relative",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    position: 'relative',
   },
   cardSelected: {
-    backgroundColor: "#FFF3EB",
+    backgroundColor: '#FFF3EB',
   },
   label: {
     marginTop: 8,
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   check: {
-    position: "absolute",
+    position: 'absolute',
     top: 8,
     right: 8,
     width: 22,
     height: 22,
     borderRadius: 6,
-    backgroundColor: "#FF6A00",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#FF6A00',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   checkText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 12,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });

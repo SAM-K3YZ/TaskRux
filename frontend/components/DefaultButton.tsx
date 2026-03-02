@@ -1,9 +1,9 @@
-import { palette, radius } from "@/constants/theme";
-import { ButtonProps } from "@/types";
-import { verticalScale } from "@/utils/styling";
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import LoadingButton from "./LoadingButton";
+import { palette, radius } from '@/constants/theme';
+import { ButtonProps } from '@/types';
+import { verticalScale } from '@/utils/styling';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import LoadingButton from './LoadingButton';
 
 const DefaultButton = ({
   style,
@@ -13,7 +13,7 @@ const DefaultButton = ({
 }: ButtonProps) => {
   if (loading) {
     return (
-      <View style={[styles.button, style, { backgroundColor: "transparent" }]}>
+      <View style={[styles.button, style, { backgroundColor: 'transparent' }]}>
         <LoadingButton />
       </View>
     );
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: palette.brandOrange,
     borderRadius: radius.full,
-    borderCurve: "continuous",
-    justifyContent: "center",
-    alignItems: "center",
+    borderCurve: 'continuous',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: verticalScale(56),
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });

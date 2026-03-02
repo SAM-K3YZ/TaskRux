@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-function welcomeBack() {
+const TaskScreen = () => {
   return (
     <View>
-      <Text>welcomeBack</Text>
+      <Text>TaskScreen</Text>
     </View>
   );
-}
+};
 
-export default welcomeBack;
+export default TaskScreen;
 
 const styles = StyleSheet.create({});
