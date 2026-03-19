@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     marginStart: spacingY._10,
   },
   footer: {
-    marginBottom: 110,
+    marginBottom: 140,
   },
   footerTxt: {
     marginTop: spacingY._10,

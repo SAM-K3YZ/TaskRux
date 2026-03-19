@@ -1,11 +1,20 @@
 import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
 import { InputProps } from '@/types';
 import { verticalScale } from '@/utils/styling';
+import * as Icons from 'phosphor-react-native';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Typo from './Typo';
 
 const Input = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const {
     icon,
     containerStyle,
@@ -13,12 +22,36 @@ const Input = (props: InputProps) => {
     inputStyle,
     inputRef,
     label,
+    helpText,
+    labelStyle,
+    helpTextStyle,
+    onHelpTextPress,
+    inputType = 'text',
     ...textInputProps
   } = props;
 
+  const isPassword = inputType === 'password';
+  const keyboardType = inputType === 'number' ? 'numeric' : 'default';
+
   return (
     <View style={[styles.wrapper, wrapperStyle]}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      <View style={styles.labelArea}>
+        {label && <Text style={[styles.label, labelStyle]}>{label}</Text>}
+        {helpText && (
+          <TouchableOpacity
+            onPress={onHelpTextPress}
+            disabled={!onHelpTextPress}
+          >
+            <Typo
+              color={light.primary}
+              size={verticalScale(13)}
+              style={helpTextStyle}
+            >
+              {helpText}
+            </Typo>
+          </TouchableOpacity>
+        )}
+      </View>
       <View
         style={[
           styles.container,
@@ -33,8 +66,27 @@ const Input = (props: InputProps) => {
           ref={inputRef && inputRef}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          secureTextEntry={isPassword && !showPassword}
+          keyboardType={keyboardType}
           {...textInputProps}
         />
+
+        {/* Eye icon only for password */}
+        {isPassword && (
+          <TouchableOpacity onPress={() => setShowPassword((prev) => !prev)}>
+            {showPassword ? (
+              <Icons.EyeIcon
+                size={verticalScale(20)}
+                color={palette.neutral400}
+              />
+            ) : (
+              <Icons.EyeSlashIcon
+                size={verticalScale(20)}
+                color={palette.neutral400}
+              />
+            )}
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -45,6 +97,10 @@ export default Input;
 const styles = StyleSheet.create({
   wrapper: {
     gap: spacingY._7,
+  },
+  labelArea: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   label: {
     fontSize: verticalScale(16),

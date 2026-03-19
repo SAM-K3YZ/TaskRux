@@ -38,6 +38,11 @@ export interface InputProps extends TextInputProps {
   inputStyle?: TextStyle;
   inputRef?: React.RefObject<TextInput>;
   label?: string;
+  helpText?: string;
+  labelStyle?: TextStyle;
+  helpTextStyle?: TextStyle;
+  onHelpTextPress?: () => void;
+  inputType?: 'text' | 'password' | 'number';
   //   error?: string;
 }
 

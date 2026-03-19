@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     marginStart: spacingY._10,
   },
   toSignIn: {
+    marginTop: spacingY._7,
     justifyContent: 'center',
     flexDirection: 'row',
   },
