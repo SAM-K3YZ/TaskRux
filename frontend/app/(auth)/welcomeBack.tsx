@@ -29,7 +29,12 @@ function WelcomeBack() {
   const handleSubmit = async () => {
     //logic
     router.push('/(tabs)');
-    console.log('To onboarding location screen...');
+    console.log('To Home screen...');
+  };
+  const toSignUp = async () => {
+    //logic
+    router.push('/(auth)/onBoarding');
+    console.log('To onboarding sign up screen...');
   };
 
   return (
@@ -173,7 +178,7 @@ function WelcomeBack() {
                       <Typo>Request Access</Typo>
                     </Pressable>
                     <Typo>or</Typo>
-                    <Pressable>
+                    <Pressable onPress={toSignUp}>
                       <Typo>Sign Up</Typo>
                     </Pressable>
                   </View>

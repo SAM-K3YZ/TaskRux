@@ -43,6 +43,11 @@ export const palette = {
   yellow: '#facc15',
   yellowLight: '#fef08a',
   yellowDark: '#eab308',
+
+  //non-brand color
+  blue: '#1193D4',
+  blueLight: '#cbe7f7',
+  greenLight: '#DCFCE7',
 };
 
 // ----------------------------------------------------------

@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-const ProfileScreen = () => {
+const SettingsScreen = () => {
   return (
     <View>
-      <Text>ProfileScreen</Text>
+      <Text>Settings Screen</Text>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default SettingsScreen;
 
 const styles = StyleSheet.create({});

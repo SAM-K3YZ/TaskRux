@@ -16,6 +16,7 @@ export type TypoProps = {
   children: any | null;
   style?: TextStyle;
   textProps?: TextProps;
+  numberOfLines?: number;
 };
 
 export interface UserProps {
@@ -44,6 +45,22 @@ export interface InputProps extends TextInputProps {
   onHelpTextPress?: () => void;
   inputType?: 'text' | 'password' | 'number';
   //   error?: string;
+}
+
+export interface ActiveProjectCardProps {
+  icon?: React.ReactNode;
+  iconBgStyle?: ViewStyle;
+  newProjectNumber?: number;
+  number?: number;
+  subtext?: string;
+}
+
+export interface OpenIssuesCardProps {
+  icon?: React.ReactNode;
+  iconBgStyle?: string;
+  newProjectNumber?: number;
+  number?: number;
+  subtext?: string;
 }
 
 export interface Member {

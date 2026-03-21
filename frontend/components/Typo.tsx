@@ -11,6 +11,7 @@ const Typo = ({
   children,
   style,
   textProps = {},
+  numberOfLines,
 }: TypoProps) => {
   const textStyle: TextStyle = {
     fontSize: verticalScale(size),

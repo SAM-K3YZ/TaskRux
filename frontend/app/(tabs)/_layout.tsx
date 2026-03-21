@@ -145,7 +145,7 @@ function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="settings"
         options={{
           tabBarIcon: ({ focused }) => {
             return (
@@ -157,7 +157,7 @@ function TabLayout() {
                 }}
               >
                 {/* Profile */}
-                <Icons.UserIcon
+                <Icons.GearIcon
                   size={verticalScale(20)}
                   color={focused ? light.primary : light.textSecondary}
                   weight={focused ? 'fill' : 'regular'}
@@ -167,7 +167,7 @@ function TabLayout() {
                   size={verticalScale(12)}
                   style={{ marginTop: 4 }}
                 >
-                  Profile
+                  Settings
                 </Typo>
               </View>
             );
