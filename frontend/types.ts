@@ -63,6 +63,57 @@ export interface OpenIssuesCardProps {
   subtext?: string;
 }
 
+export interface WorkersOnSiteCardProps {
+  number: number;
+  subtext: string;
+  workers?: WorkerAvatarProps[];
+}
+
+export interface WorkerAvatarProps {
+  id: string;
+  image?: string;
+  name: string;
+}
+export interface WorkerTaskCardProps {
+  task?: string;
+  time?: string | Date;
+  worker?: WorkerAvatarProps;
+}
+
+export interface WorkReportCardProps {
+  title?: string;
+  site?: string;
+  time?: string | Date;
+  worker?: WorkerAvatarProps;
+}
+
+// Add to your types file
+export type ReportStatus = 'submitted' | 'pending';
+export type DeliveryType = 'material' | 'machine';
+export type DeliveryStatus = 'success' | 'warning' | 'delayed';
+
+export interface ReportCardProps {
+  title: string;
+  site: string;
+  time: string | Date;
+  status: ReportStatus;
+}
+
+export interface DeliveryCardProps {
+  title: string;
+  site: string;
+  time: string | Date;
+  type: DeliveryType;
+  status: DeliveryStatus;
+}
+
+export interface SiteOverviewCardProps {
+  siteName: string;
+  address: string;
+  mapImage?: string | number;
+  onPress?: () => void;
+}
+
 export interface Member {
   id: string;
   email: string;

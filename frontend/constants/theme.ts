@@ -48,6 +48,8 @@ export const palette = {
   blue: '#1193D4',
   blueLight: '#cbe7f7',
   greenLight: '#DCFCE7',
+  purple: '#9333EA',
+  purpleLight: '#FAF5FF',
 };
 
 // ----------------------------------------------------------
@@ -181,6 +183,7 @@ export const spacingX = {
 };
 
 export const spacingY = {
+  _3: verticalScale(3),
   _5: verticalScale(5),
   _7: verticalScale(7),
   _10: verticalScale(10),
@@ -194,6 +197,8 @@ export const spacingY = {
   _40: verticalScale(40),
   _50: verticalScale(50),
   _60: verticalScale(60),
+  _70: verticalScale(70),
+  _80: verticalScale(80),
 };
 
 export const radius = {
