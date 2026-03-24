@@ -44,8 +44,8 @@ const SiteOverviewCard = ({
   const savedScale = useSharedValue(1);
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
-  const savedTranslateX = useSharedValue(0); // 👈 added
-  const savedTranslateY = useSharedValue(0); // 👈 added
+  const savedTranslateX = useSharedValue(0);
+  const savedTranslateY = useSharedValue(0);
 
   const handleModalOpen = () => {
     if (typeof source === 'number') {
@@ -60,7 +60,7 @@ const SiteOverviewCard = ({
   };
 
   const handleModalClose = () => {
-    // 👈 reset all transforms on close
+    //  reset all transforms on close
     scale.value = 1;
     savedScale.value = 1;
     translateX.value = 0;
@@ -80,12 +80,12 @@ const SiteOverviewCard = ({
 
   const panGesture = Gesture.Pan()
     .onUpdate((e) => {
-      // 👈 accumulate translation from saved offset
+      // accumulate translation from saved offset
       translateX.value = savedTranslateX.value + e.translationX;
       translateY.value = savedTranslateY.value + e.translationY;
     })
     .onEnd(() => {
-      // 👈 save position so next pan starts from here
+      //  save position so next pan starts from here
       savedTranslateX.value = translateX.value;
       savedTranslateY.value = translateY.value;
     });
@@ -174,7 +174,7 @@ const SiteOverviewCard = ({
               </TouchableOpacity>
             </View>
 
-            {/* Zoomable map — 👈 wrap in a container */}
+            {/* Zoomable map —  wrap in a container */}
             <View style={styles.mapContainer}>
               <GestureDetector gesture={composed}>
                 <Animated.View style={[styles.imageContainer, animatedStyle]}>
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.35)',
+    backgroundColor: light.shadow,
     borderRadius: radius._15,
   },
   info: {
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     flex: 1,
-    overflow: 'hidden', // 👈 clips image when panning outside bounds
+    overflow: 'hidden', // clips image when panning outside bounds
     justifyContent: 'center',
     alignItems: 'center',
   },
