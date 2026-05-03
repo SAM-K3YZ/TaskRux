@@ -1,4 +1,4 @@
-import { light, palette, radius, spacingY } from '@/constants/theme';
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
 import { DeliveryCardProps } from '@/types';
 import { formatTime } from '@/utils/formatTime';
 import { verticalScale } from '@/utils/styling';
@@ -7,6 +7,7 @@ import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Typo from './Typo';
+import Dot from './Dot';
 
 const STATUS_CONFIG = {
   success: {
@@ -45,7 +46,7 @@ const DeliveryCard = ({
   return (
     <Pressable
       style={styles.container}
-      onPress={() => router.push('/(tabs)/tasks')}
+      onPress={() => router.push('/(tabs)/task')}
     >
       <View style={styles.leftSide}>
         {/* Icon */}
@@ -59,32 +60,43 @@ const DeliveryCard = ({
 
         {/* Text */}
         <View style={styles.textArea}>
-          <Typo
-            color={light.textPrimary}
-            size={verticalScale(12)}
-            fontWeight={'bold'}
-          >
-            {title}
-          </Typo>
-          <Typo
-            color={light.textSecondary}
-            size={verticalScale(10)}
-            fontWeight={'light'}
-          >
-            {`${site}  ●  ${formatTime(time)}`}
-          </Typo>
+          <View style={styles.textTitle}>
+            <Typo
+              color={light.textPrimary}
+              size={verticalScale(12)}
+              fontWeight={'bold'}
+            >
+              {title}
+            </Typo>
+            {/* Status Badge */}
+            <View style={[styles.badge, { backgroundColor: statusConfig.bg }]}>
+              <Typo
+                size={verticalScale(10)}
+                fontWeight={'bold'}
+                color={statusConfig.color}
+              >
+                {statusConfig.label}
+              </Typo>
+            </View>
+          </View>
+          <View style={styles.subDetailsText}>
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {site}
+            </Typo>
+            <Dot />
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {formatTime(time)}
+            </Typo>
+          </View>
         </View>
-      </View>
-
-      {/* Status Badge */}
-      <View style={[styles.badge, { backgroundColor: statusConfig.bg }]}>
-        <Typo
-          size={verticalScale(10)}
-          fontWeight={'bold'}
-          color={statusConfig.color}
-        >
-          {statusConfig.label}
-        </Typo>
       </View>
     </Pressable>
   );
@@ -97,7 +109,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     flexDirection: 'row',
-    gap: spacingY._15,
+    gap: spacingY._25,
     elevation: 2,
     shadowColor: '#000',
     shadowOpacity: 0.04,
@@ -122,11 +134,23 @@ const styles = StyleSheet.create({
   },
   textArea: {
     flex: 1,
-    gap: spacingY._3,
+    gap: spacingY._7,
+  },
+  textTitle: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    //backgroundColor: light.border,
   },
   badge: {
     paddingHorizontal: spacingY._10,
     paddingVertical: spacingY._5,
     borderRadius: radius._12,
+  },
+  subDetailsText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacingX._5,
   },
 });

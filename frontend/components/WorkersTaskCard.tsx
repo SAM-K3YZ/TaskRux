@@ -1,4 +1,4 @@
-import { light, radius, spacingY } from '@/constants/theme';
+import { light, radius, spacingX, spacingY } from '@/constants/theme';
 import { WorkerTaskCardProps } from '@/types';
 import { formatTime } from '@/utils/formatTime';
 import { verticalScale } from '@/utils/styling';
@@ -7,6 +7,7 @@ import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import Typo from './Typo';
+import Dot from './Dot';
 
 const WorkersTaskCard = ({ worker, task, time }: WorkerTaskCardProps) => {
   return (
@@ -34,18 +35,28 @@ const WorkersTaskCard = ({ worker, task, time }: WorkerTaskCardProps) => {
           >
             {`${worker?.name} completed a task`}
           </Typo>
-          <Typo
-            color={light.textSecondary}
-            size={verticalScale(10)}
-            fontWeight={'light'}
-          >
-            {`${task}  ●  ${formatTime(time)}`}
-          </Typo>
+          <View style={styles.subDetailsText}>
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {task}
+            </Typo>
+            <Dot />
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {formatTime(time)}
+            </Typo>
+          </View>
         </View>
       </View>
 
       {/* Button */}
-      <Pressable onPress={() => router.push('/(tabs)/workers')}>
+      <Pressable style={styles.rightSide} onPress={() => router.push('/(tabs)/workers')}>
         <Icon.CaretRightIcon
           size={verticalScale(15)}
           color={light.borderStrong}
@@ -104,5 +115,10 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: spacingY._3,
     justifyContent: 'center',
+  },
+  subDetailsText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacingX._5,
   },
 });

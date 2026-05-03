@@ -202,6 +202,10 @@ export type BackButtonProps = {
   iconSize?: number;
 };
 
+export type DotProp = {
+  style?: ViewStyle;
+};
+
 export type AvatarProps = {
   size?: number;
   uri: string | null;

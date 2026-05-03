@@ -1,4 +1,4 @@
-import { light, palette, radius, spacingY } from '@/constants/theme';
+import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
 import { ReportCardProps } from '@/types';
 import { formatTime } from '@/utils/formatTime';
 import { verticalScale } from '@/utils/styling';
@@ -7,6 +7,7 @@ import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Typo from './Typo';
+import Dot from './Dot';
 
 const WorkReportCard = ({ title, site, time, status }: ReportCardProps) => {
   const isSubmitted = status === 'submitted';
@@ -14,7 +15,7 @@ const WorkReportCard = ({ title, site, time, status }: ReportCardProps) => {
   return (
     <Pressable
       style={styles.container}
-      onPress={() => router.push('/(tabs)/tasks')}
+      onPress={() => router.push('/(tabs)/task')}
     >
       <View style={styles.leftSide}>
         {/* Icon */}
@@ -44,13 +45,23 @@ const WorkReportCard = ({ title, site, time, status }: ReportCardProps) => {
           >
             {title}
           </Typo>
-          <Typo
-            color={light.textSecondary}
-            size={verticalScale(10)}
-            fontWeight={'light'}
-          >
-            {`${site}  ●  ${formatTime(time)}`}
-          </Typo>
+          <View style={styles.subDetailsText}>
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {site}
+            </Typo>
+            <Dot />
+            <Typo
+              color={light.textSecondary}
+              size={verticalScale(10)}
+              fontWeight={'light'}
+            >
+              {formatTime(time)}
+            </Typo>
+          </View>
         </View>
       </View>
 
@@ -105,5 +116,10 @@ const styles = StyleSheet.create({
   textArea: {
     flex: 1,
     gap: spacingY._3,
+  }, 
+  subDetailsText: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: spacingX._5,
   },
 });

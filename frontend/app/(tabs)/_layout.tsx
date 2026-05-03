@@ -18,7 +18,7 @@ function TabLayout() {
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          bottom: insets.bottom + spacingY._10,
+          //bottom: insets.bottom + spacingY._10,
           left: 16,
           right: 16,
           height: 72,
