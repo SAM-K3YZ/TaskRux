@@ -1,11 +1,18 @@
 import Typo from '@/components/Typo';
-import { light, spacingX, spacingY } from '@/constants/theme';
+import { light, palette, spacingX, spacingY } from '@/constants/theme';
 import { verticalScale } from '@/utils/styling';
 import React from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import * as Icon from 'phosphor-react-native';
-import SearchInput from '@/components/SearchInput';
 import Input from '@/components/Input';
+import ProjectCard from '@/components/ProjectCard';
 
 const ProjectScreen = () => {
   const toNotification = async () => {
@@ -31,6 +38,7 @@ const ProjectScreen = () => {
             Projects
           </Typo>
         </View>
+
         <View style={styles.topRight}>
           <Pressable onPress={toNotification}>
             <Icon.BellIcon
@@ -41,12 +49,32 @@ const ProjectScreen = () => {
         </View>
       </View>
 
-      <View>
-        <SearchInput />
+      <View style={styles.searchArea}>
+        <Input
+          placeholder="Search project..."
+          icon={<Icon.MagnifyingGlassIcon />}
+          inputType="text"
+        />
+        <Pressable>
+          <Icon.SlidersHorizontalIcon
+            color={light.textPrimary}
+            size={verticalScale(25)}
+            style={styles.filterIcon}
+          />
+        </Pressable>
       </View>
 
-      <View>
-      </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: spacingY._80 }}
+      >
+        <ProjectCard
+          projectName="Downtown Skyline"
+          address="12 Downtown road, Summerville"
+          status='planning'
+        />
+      </ScrollView>
+      <View></View>
     </View>
   );
 };
@@ -56,6 +84,7 @@ export default ProjectScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    gap: 20,
     paddingHorizontal: spacingX._20,
     paddingVertical: spacingY._20,
     backgroundColor: light.background,
@@ -63,7 +92,7 @@ const styles = StyleSheet.create({
   top: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: spacingY._10,
+    paddingVertical: spacingY._5,
     marginTop: spacingY._15,
     alignItems: 'center',
     backgroundColor: light.background,
@@ -74,5 +103,14 @@ const styles = StyleSheet.create({
   topRight: {
     flexDirection: 'row',
     gap: spacingY._25,
+  },
+  searchArea: {
+    gap: spacingY._10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  filterIcon: {
+    flex: 1,
+    padding: spacingY._10,
   },
 });

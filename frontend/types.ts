@@ -91,6 +91,7 @@ export interface WorkReportCardProps {
 export type ReportStatus = 'submitted' | 'pending';
 export type DeliveryType = 'material' | 'machine';
 export type DeliveryStatus = 'success' | 'warning' | 'delayed';
+export type ProjectStatus = 'active' | 'onHold' | 'planning';
 
 export interface ReportCardProps {
   title: string;
@@ -159,6 +160,12 @@ export interface RadioInputProps {
   icon?: React.ComponentType<any>;
   containerStyle?: ViewStyle;
   disabled?: boolean;
+}
+
+export interface ProjectCardProps{
+  projectName: string,
+  address: string,
+  status: ProjectStatus;
 }
 
 export type AuthContextProps = {

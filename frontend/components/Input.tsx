@@ -96,6 +96,7 @@ export default Input;
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     gap: spacingY._7,
   },
   labelArea: {

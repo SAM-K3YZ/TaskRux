@@ -4,9 +4,12 @@ import { light, palette, radius, spacingY } from '@/constants/theme';
 import * as Icon from 'phosphor-react-native';
 import { verticalScale } from '@/utils/styling';
 import Typo from './Typo';
+import { InputProps } from '@/types';
 
-const SearchInput = () => {
+const SearchInput = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
+  const { inputType = 'text', helpTextStyle, helpText } = props;
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
@@ -15,8 +18,9 @@ const SearchInput = () => {
           size={verticalScale(14)}
           fontWeight={'200'}
           color={light.textMuted}
+          style={helpTextStyle}
         >
-          Search projects...
+          {helpText}
         </Typo>
       </View>
     </View>
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'flex-start',
-    height: verticalScale(56),
+    height: verticalScale(40),
     gap: spacingY._10,
     borderColor: palette.blueLight,
     padding: spacingY._7,
