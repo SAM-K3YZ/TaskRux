@@ -1,6 +1,6 @@
-import Typo from '@/components/Typo';
-import { light, palette, spacingX, spacingY } from '@/constants/theme';
-import { verticalScale } from '@/utils/styling';
+import Typo from '@/src/shared/components/Typo';
+import { light, palette, spacingX, spacingY } from '@/src/constants/theme';
+import { verticalScale } from '@/src/shared/utils/styling';
 import React from 'react';
 import {
   Alert,
@@ -11,8 +11,8 @@ import {
   View,
 } from 'react-native';
 import * as Icon from 'phosphor-react-native';
-import Input from '@/components/Input';
-import ProjectCard from '@/components/ProjectCard';
+import Input from '@/src/shared/components/Input';
+import ProjectCard from '@/src/features/projects/components/ProjectCard';
 
 const ProjectScreen = () => {
   const toNotification = async () => {

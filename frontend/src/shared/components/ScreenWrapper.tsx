@@ -1,5 +1,5 @@
-import { dark, palette } from '@/constants/theme';
-import { ScreenWrapperProps } from '@/types';
+import { dark, palette } from '@/src/constants/theme';
+import { ScreenWrapperProps } from '@/src/types';
 import React from 'react';
 import {
   Dimensions,
@@ -34,7 +34,7 @@ const ScreenWrapper = ({
         backgroundColor: isModal ? dark.textOnPrimary : palette.neutral900,
       }}
       imageStyle={{ opacity: showBg ? bgOpacity : 0 }}
-      source={require('../assets/images/bgImage.png')}
+      source={require('@/assets/images/bgImage.png')}
     >
       <View style={[{ paddingTop, paddingBottom, flex: 1 }, style]}>
         <StatusBar barStyle={'light-content'} backgroundColor={'transparent'} />

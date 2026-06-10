@@ -1,6 +1,6 @@
-import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
-import { TeamMemberCardProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { TeamMemberCardProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icons from 'phosphor-react-native';
 import React, { useState } from 'react';
 import {
@@ -10,7 +10,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Typo from './Typo';
+import Typo from '@/src/shared/components/Typo';
+
 
 const ROLES = [
   {

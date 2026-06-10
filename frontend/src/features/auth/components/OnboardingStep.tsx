@@ -1,7 +1,7 @@
-import { light, radius, spacingY } from '@/constants/theme';
+import { light, radius, spacingY } from '@/src/constants/theme';
+import Typo from '@/src/shared/components/Typo';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Typo from './Typo';
 
 interface OnboardingStepProps {
   step: number;

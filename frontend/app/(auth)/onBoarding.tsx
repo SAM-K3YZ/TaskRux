@@ -1,11 +1,11 @@
-import BackButton from '@/components/BackButton';
-import DefaultButton from '@/components/DefaultButton';
-import OnboardngStep from '@/components/OnboardngStep';
-import RadioInput from '@/components/RadioInput';
-import ScreenWrapper from '@/components/ScreenWrapper';
-import Typo from '@/components/Typo';
-import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
-import { verticalScale } from '@/utils/styling';
+import BackButton from '@/src/shared/components/BackButton';
+import DefaultButton from '@/src/shared/components/DefaultButton';
+import OnboardngStep from '@/src/features/auth/components/OnboardingStep';
+import RadioInput from '@/src/shared/components/RadioInput';
+import ScreenWrapper from '@/src/shared/components/ScreenWrapper';
+import Typo from '@/src/shared/components/Typo';
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import * as Icons from 'phosphor-react-native';
@@ -19,7 +19,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import Input from '../../components/Input';
+import Input from '@/src/shared/components/Input';
 
 function OnBoarding() {
   const nameRef = useRef('');

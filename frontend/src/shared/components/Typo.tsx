@@ -1,6 +1,6 @@
-import { dark } from '@/constants/theme';
-import { TypoProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { dark } from '@/src/constants/theme';
+import { TypoProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import React from 'react';
 import { StyleSheet, Text, TextStyle } from 'react-native';
 

@@ -1,6 +1,6 @@
-import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
-import { SiteOverviewCardProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { SiteOverviewCardProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icon from 'phosphor-react-native';
 import React, { useState } from 'react';
 import {
@@ -21,7 +21,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
-import Typo from './Typo';
+import Typo from '@/src/shared/components/Typo';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const FALLBACK_MAP = require('@/assets/images/map.png');

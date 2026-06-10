@@ -1,6 +1,6 @@
-import { palette } from '@/constants/theme';
-import { BackButtonProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { palette } from '@/src/constants/theme';
+import { BackButtonProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { useRouter } from 'expo-router';
 import { CaretLeftIcon } from 'phosphor-react-native';
 import React from 'react';

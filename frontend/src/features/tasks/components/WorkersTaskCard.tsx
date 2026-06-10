@@ -1,13 +1,14 @@
-import { light, radius, spacingX, spacingY } from '@/constants/theme';
-import { WorkerTaskCardProps } from '@/types';
-import { formatTime } from '@/utils/formatTime';
-import { verticalScale } from '@/utils/styling';
+import { light, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { WorkerTaskCardProps } from '@/src/types';
+import { formatTime } from '@/src/shared/utils/formatTime';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { router } from 'expo-router';
 import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
-import Typo from './Typo';
-import Dot from './Dot';
+import Typo from '@/src/shared/components/Typo';
+import Dot from '@/src/shared/components/Dot';
+
 
 const WorkersTaskCard = ({ worker, task, time }: WorkerTaskCardProps) => {
   return (

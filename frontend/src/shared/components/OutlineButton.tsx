@@ -1,6 +1,6 @@
-import { palette, radius } from '@/constants/theme';
-import { ButtonProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { palette, radius } from '@/src/constants/theme';
+import { ButtonProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import LoadingButton from './LoadingButton';

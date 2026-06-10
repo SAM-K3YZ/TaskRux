@@ -1,4 +1,4 @@
-import { palette } from '@/constants/theme';
+import { palette } from '@/src/constants/theme';
 import React from 'react';
 import {
   ActivityIndicator,

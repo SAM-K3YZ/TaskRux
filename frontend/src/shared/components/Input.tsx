@@ -1,6 +1,6 @@
-import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
-import { InputProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { InputProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icons from 'phosphor-react-native';
 import React, { useState } from 'react';
 import {

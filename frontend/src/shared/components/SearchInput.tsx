@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { light, palette, radius, spacingY } from '@/constants/theme';
+import { light, palette, radius, spacingY } from '@/src/constants/theme';
 import * as Icon from 'phosphor-react-native';
-import { verticalScale } from '@/utils/styling';
+import { verticalScale } from '@/src/shared/utils/styling';
 import Typo from './Typo';
-import { InputProps } from '@/types';
+import { InputProps } from '@/src/types';
 
 const SearchInput = (props: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);

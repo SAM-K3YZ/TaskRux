@@ -1,9 +1,10 @@
-import { light, radius, spacingX, spacingY } from '@/constants/theme';
-import { AddMemberButtonProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { AddMemberButtonProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icons from 'phosphor-react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import Typo from './Typo';
+import Typo from '@/src/shared/components/Typo';
+
 
 export function AddMemberButton({ onPress }: AddMemberButtonProps) {
   return (

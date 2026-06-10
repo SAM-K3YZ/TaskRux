@@ -1,10 +1,10 @@
-import DefaultButton from '@/components/DefaultButton';
-import OutlineButton from '@/components/OutlineButton';
-import ScreenWrapper from '@/components/ScreenWrapper';
-import Typo from '@/components/Typo';
-import { light, palette, spacingX, spacingY } from '@/constants/theme';
-import { handleBiometric, osType } from '@/utils/authServices';
-import { verticalScale } from '@/utils/styling';
+import DefaultButton from '@/src/shared/components/DefaultButton';
+import OutlineButton from '@/src/shared/components/OutlineButton';
+import ScreenWrapper from '@/src/shared/components/ScreenWrapper';
+import Typo from '@/src/shared/components/Typo';
+import { light, palette, spacingX, spacingY } from '@/src/constants/theme';
+import { handleBiometric, osType } from '@/src/features/auth/services/authService';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import * as Icons from 'phosphor-react-native';
@@ -18,7 +18,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Input from '../../components/Input';
+import Input from '@/src/shared/components/Input';
 
 function WelcomeBack() {
   const insets = useSafeAreaInsets();

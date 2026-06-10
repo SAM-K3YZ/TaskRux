@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { light, radius } from '@/constants/theme'
-import { DotProp } from '@/types'
+import { light, radius } from '@/src/constants/theme'
+import { DotProp } from '@/src/types'
 
 const Dot = ({style} :DotProp) => {
   return (

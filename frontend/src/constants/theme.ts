@@ -1,4 +1,4 @@
-import { scale, verticalScale } from '@/utils/styling';
+import { scale, verticalScale } from '@/src/shared/utils/styling';
 
 export const palette = {
   // Brand

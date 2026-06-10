@@ -1,6 +1,6 @@
-import Typo from '@/components/Typo';
-import { light, radius, spacingY } from '@/constants/theme';
-import { scale, verticalScale } from '@/utils/styling';
+import Typo from '@/src/shared/components/Typo';
+import { light, radius, spacingY } from '@/src/constants/theme';
+import { scale, verticalScale } from '@/src/shared/utils/styling';
 import { Tabs } from 'expo-router';
 import * as Icons from 'phosphor-react-native';
 import React from 'react';

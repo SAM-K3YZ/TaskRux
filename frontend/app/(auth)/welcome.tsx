@@ -1,8 +1,8 @@
-import DefaultButton from '@/components/DefaultButton';
-import ScreenWrapper from '@/components/ScreenWrapper';
-import Typo from '@/components/Typo';
-import { dark, palette, spacingX, spacingY } from '@/constants/theme';
-import { verticalScale } from '@/utils/styling';
+import DefaultButton from '@/src/shared/components/DefaultButton';
+import ScreenWrapper from '@/src/shared/components/ScreenWrapper';
+import Typo from '@/src/shared/components/Typo';
+import { dark, palette, spacingX, spacingY } from '@/src/constants/theme';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React from 'react';

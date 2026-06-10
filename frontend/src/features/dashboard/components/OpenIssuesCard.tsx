@@ -1,10 +1,11 @@
-import { light, palette, radius, spacingX } from '@/constants/theme';
-import { OpenIssuesCardProps } from '@/types';
-import { scale, verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX } from '@/src/constants/theme';
+import { OpenIssuesCardProps } from '@/src/types';
+import { scale, verticalScale } from '@/src/shared/utils/styling';
 import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Typo from './Typo';
+import Typo from '@/src/shared/components/Typo';
+
 const OpenIssuesCard = ({
   number,
   subtext,

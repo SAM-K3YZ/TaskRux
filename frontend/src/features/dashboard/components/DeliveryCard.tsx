@@ -1,13 +1,15 @@
-import { light, palette, radius, spacingX, spacingY } from '@/constants/theme';
-import { DeliveryCardProps } from '@/types';
-import { formatTime } from '@/utils/formatTime';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { DeliveryCardProps } from '@/src/types';
+import { formatTime } from '@/src/shared/utils/formatTime';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { router } from 'expo-router';
 import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Typo from './Typo';
-import Dot from './Dot';
+import Typo from '@/src/shared/components/Typo';
+import Dot from '@/src/shared/components/Dot';
+
+
 
 const STATUS_CONFIG = {
   success: {

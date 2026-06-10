@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { light, palette, spacingY } from '@/constants/theme';
-import Typo from './Typo';
-import { ProjectCardProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, spacingY } from '@/src/constants/theme';
+
+import { ProjectCardProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
+import Typo from '@/src/shared/components/Typo';
 
 const STATUS_CONFIG = {
   active: {

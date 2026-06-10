@@ -1,6 +1,6 @@
-import { light, palette, radius, spacingX } from '@/constants/theme';
-import { RadioInputProps } from '@/types';
-import { verticalScale } from '@/utils/styling';
+import { light, palette, radius, spacingX } from '@/src/constants/theme';
+import { RadioInputProps } from '@/src/types';
+import { verticalScale } from '@/src/shared/utils/styling';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Typo from './Typo';

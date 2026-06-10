@@ -1,4 +1,4 @@
-import { dark, palette } from '@/constants/theme';
+import { dark, palette } from '@/src/constants/theme';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
