@@ -5,7 +5,6 @@ import * as Icon from 'phosphor-react-native';
 import React, { useState } from 'react';
 import {
   Dimensions,
-  Image,
   ImageBackground,
   Modal,
   StyleSheet,
@@ -22,9 +21,11 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import Typo from '@/src/shared/components/Typo';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import FALLBACK_MAP from '@/assets/images/map.png';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
-const FALLBACK_MAP = require('@/assets/images/map.png');
 
 const SiteOverviewCard = ({
   siteName,
@@ -32,7 +33,7 @@ const SiteOverviewCard = ({
   mapImage,
 }: SiteOverviewCardProps) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [imgSize, setImgSize] = useState({ width: 800, height: 500 });
+  const insets = useSafeAreaInsets();
 
   const source = !mapImage
     ? FALLBACK_MAP
@@ -48,14 +49,6 @@ const SiteOverviewCard = ({
   const savedTranslateY = useSharedValue(0);
 
   const handleModalOpen = () => {
-    if (typeof source === 'number') {
-      const asset = Image.resolveAssetSource(source);
-      setImgSize({ width: asset.width, height: asset.height });
-    } else if (source.uri && source.uri.length > 0) {
-      Image.getSize(source.uri, (width, height) => {
-        setImgSize({ width, height });
-      });
-    }
     setModalVisible(true);
   };
 
@@ -140,7 +133,7 @@ const SiteOverviewCard = ({
         onRequestClose={handleModalClose}
       >
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <View style={styles.modalOverlay}>
+          <View style={[styles.modalOverlay, { paddingTop: insets.top }]}>
             {/* Header */}
             <View style={styles.modalHeader}>
               <View>
@@ -163,7 +156,7 @@ const SiteOverviewCard = ({
                 </View>
               </View>
               <TouchableOpacity
-                onPress={() => setModalVisible(false)}
+                onPress={handleModalClose}
                 style={styles.closeBtn}
               >
                 <Icon.XIcon

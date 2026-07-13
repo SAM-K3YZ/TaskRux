@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     flexDirection: 'row',
-    gap: spacingY._15,
+    gap: spacingX._15,
     elevation: 2,
     shadowColor: '#000',
     shadowOpacity: 0.04,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacingY._10,
+    gap: spacingX._10,
   },
   iconWrapper: {
     width: verticalScale(44),

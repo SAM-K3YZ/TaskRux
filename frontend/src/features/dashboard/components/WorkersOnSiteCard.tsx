@@ -29,11 +29,7 @@ const WorkersOnSiteCard = ({
             {workers.slice(0, 2).map((worker, index) => (
               <View
                 key={worker.id}
-                style={[
-                  ,
-                  styles.avatarWrapper,
-                  { marginLeft: index > 0 ? -10 : 0 },
-                ]}
+                style={[styles.avatarWrapper, { marginLeft: index > 0 ? -10 : 0 }]}
               >
                 {worker.image ? (
                   <Image source={{ uri: worker.image }} style={styles.avatar} />

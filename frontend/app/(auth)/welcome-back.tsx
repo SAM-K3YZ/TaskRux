@@ -1,4 +1,5 @@
 import DefaultButton from '@/src/shared/components/DefaultButton';
+import Input from '@/src/shared/components/Input';
 import OutlineButton from '@/src/shared/components/OutlineButton';
 import ScreenWrapper from '@/src/shared/components/ScreenWrapper';
 import Typo from '@/src/shared/components/Typo';
@@ -18,7 +19,6 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Input from '@/src/shared/components/Input';
 
 function WelcomeBack() {
   const insets = useSafeAreaInsets();
@@ -26,15 +26,14 @@ function WelcomeBack() {
   const emailRef = useRef('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+
   const handleSubmit = async () => {
-    //logic
+    // TODO: POST to /api/auth/login and store token before navigating
     router.push('/(tabs)');
-    console.log('To Home screen...');
   };
-  const toSignUp = async () => {
-    //logic
-    router.push('/(auth)/onBoarding');
-    console.log('To onboarding sign up screen...');
+
+  const toSignUp = () => {
+    router.push('/(auth)/onboarding');
   };
 
   return (
@@ -50,129 +49,66 @@ function WelcomeBack() {
             paddingBottom: insets.bottom + spacingY._10,
           }}
         >
-          {/*Screen Top */}
           <View style={styles.header}>
-            <Typo
-              size={verticalScale(60)}
-              color={palette.white}
-              fontWeight={'bold'}
-            >
+            <Typo size={verticalScale(60)} color={palette.white} fontWeight={'bold'}>
               TaskRux
             </Typo>
-            <Typo
-              color={palette.white}
-              size={verticalScale(13)}
-              fontWeight={'medium'}
-              style={{ marginTop: spacingY._5 }}
-            >
+            <Typo color={palette.white} size={verticalScale(13)} fontWeight={'medium'} style={{ marginTop: spacingY._5 }}>
               Sign in to manage your site operations
             </Typo>
           </View>
 
-          {/*Screen Middle */}
-          <View
-            style={{
-              flex: 1,
-              paddingBottom: insets.bottom + spacingY._10,
-            }}
-          >
+          <View style={{ flex: 1, paddingBottom: insets.bottom + spacingY._10 }}>
             <ScrollView
-              contentContainerStyle={[
-                ,
-                styles.form,
-                { flexGrow: 1, justifyContent: 'center' },
-              ]}
+              contentContainerStyle={[styles.form, { flexGrow: 1, justifyContent: 'center' }]}
               showsVerticalScrollIndicator={false}
             >
               <View style={styles.textInputs}>
-                {/*Email Input*/}
                 <Input
                   placeholder="Enter your email address"
-                  onChangeText={(value: string) => {
-                    emailRef.current = value;
-                    console.log('name: ', value);
-                  }}
+                  onChangeText={(val) => { emailRef.current = val; }}
                   label="Email Address"
                   labelStyle={{ color: palette.white }}
-                  icon={
-                    <Icons.EnvelopeSimpleIcon
-                      size={verticalScale(26)}
-                      color={palette.neutral600}
-                    />
-                  }
+                  icon={<Icons.EnvelopeSimpleIcon size={verticalScale(26)} color={palette.neutral600} />}
                 />
-                {/*Password Input*/}
                 <Input
                   placeholder="Enter your password"
                   label="Password"
                   labelStyle={{ color: palette.white }}
                   inputType="password"
-                  helpText="Forget Passowrd?"
+                  helpText="Forgot Password?"
                   helpTextStyle={{ fontWeight: 'bold' }}
-                  onHelpTextPress={() => router.push('/(auth)/forgetPassword')}
-                  onChangeText={(value: string) => {
-                    passwordRef.current = value;
-                    console.log('email: ', value);
-                  }}
-                  icon={
-                    <Icons.LockSimpleIcon
-                      size={verticalScale(20)}
-                      color={palette.neutral600}
-                    />
-                  }
+                  onHelpTextPress={() => router.push('/(auth)/forgot-password')}
+                  onChangeText={(val) => { passwordRef.current = val; }}
+                  icon={<Icons.LockSimpleIcon size={verticalScale(20)} color={palette.neutral600} />}
                 />
               </View>
 
-              {/*Footer*/}
               <View style={{ gap: spacingY._20 }}>
-                {/*Sign in Button*/}
                 <DefaultButton loading={isLoading} onPress={handleSubmit}>
-                  <Typo
-                    fontWeight={'bold'}
-                    color={light.textOnPrimary}
-                    size={verticalScale(20)}
-                  >
+                  <Typo fontWeight={'bold'} color={light.textOnPrimary} size={verticalScale(20)}>
                     Sign In
                   </Typo>
                   <View style={styles.btnIcon}>
-                    <FontAwesome6
-                      name="arrow-right"
-                      color={light.textOnPrimary}
-                      size={18}
-                    />
+                    <FontAwesome6 name="arrow-right" color={light.textOnPrimary} size={18} />
                   </View>
                 </DefaultButton>
 
-                {/* Continue with */}
                 <View style={styles.continueArea}>
-                  <View style={styles.continueBorder}></View>
+                  <View style={styles.continueBorder} />
                   <Typo>Or continue with</Typo>
-                  <View style={styles.continueBorder}></View>
+                  <View style={styles.continueBorder} />
                 </View>
 
-                {/* Second button */}
-                <OutlineButton
-                  onPress={() => handleBiometric(router)}
-                  style={{ gap: 10 }}
-                >
-                  <Typo
-                    fontWeight={'bold'}
-                    color={light.surface}
-                    size={verticalScale(16)}
-                  >
+                <OutlineButton onPress={() => handleBiometric(router)} style={{ gap: 10 }}>
+                  <Typo fontWeight={'bold'} color={light.surface} size={verticalScale(16)}>
                     Log in with {osType}
                   </Typo>
-                  <Icons.FingerprintIcon
-                    color={light.surface}
-                    size={verticalScale(18)}
-                  />
+                  <Icons.FingerprintIcon color={light.surface} size={verticalScale(18)} />
                 </OutlineButton>
 
-                {/* New users */}
                 <View style={styles.newUserArea}>
-                  <View>
-                    <Typo>New to the platform?</Typo>
-                  </View>
+                  <Typo>New to the platform?</Typo>
                   <View style={styles.newUserLinks}>
                     <Pressable>
                       <Typo>Request Access</Typo>
@@ -202,15 +138,13 @@ const styles = StyleSheet.create({
   form: {
     paddingHorizontal: spacingX._15,
     gap: spacingY._30,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
   textInputs: {
     gap: spacingY._15,
     marginBottom: spacingY._10,
   },
   btnIcon: {
-    marginStart: spacingY._10,
+    marginStart: spacingX._10,
   },
   continueArea: {
     flexDirection: 'row',

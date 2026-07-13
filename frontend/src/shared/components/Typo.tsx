@@ -2,7 +2,7 @@ import { dark } from '@/src/constants/theme';
 import { TypoProps } from '@/src/types';
 import { verticalScale } from '@/src/shared/utils/styling';
 import React from 'react';
-import { StyleSheet, Text, TextStyle } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 
 const Typo = ({
   size = 16,
@@ -20,12 +20,10 @@ const Typo = ({
   };
 
   return (
-    <Text style={[textStyle, style]} {...textProps}>
+    <Text style={[textStyle, style]} numberOfLines={numberOfLines} {...textProps}>
       {children}
     </Text>
   );
 };
 
 export default Typo;
-
-const styles = StyleSheet.create({});

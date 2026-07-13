@@ -1,6 +1,9 @@
+import { light, palette, radius, spacingX, spacingY } from '@/src/constants/theme';
+import { verticalScale } from '@/src/shared/utils/styling';
 import { QuickSettingsProps } from '@/src/types';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Typo from '@/src/shared/components/Typo';
 
 const QuickSettings = ({
   items,
@@ -9,8 +12,7 @@ const QuickSettings = ({
   containerStyle,
 }: QuickSettingsProps) => {
   const handlePress = (id: string) => {
-    const isSelected = selected.includes(id);
-    onToggle(id, !isSelected);
+    onToggle(id, !selected.includes(id));
   };
 
   return (
@@ -28,17 +30,19 @@ const QuickSettings = ({
           >
             {Icon && (
               <Icon
-                size={26}
-                color="#FF6A00"
+                size={verticalScale(26)}
+                color={light.primary}
                 weight={isSelected ? 'fill' : 'regular'}
               />
             )}
 
-            <Text style={styles.label}>{item.label}</Text>
+            <Typo size={14} fontWeight={'500'} color={light.textPrimary} style={styles.label}>
+              {item.label}
+            </Typo>
 
             {isSelected && (
               <View style={styles.check}>
-                <Text style={styles.checkText}>✓</Text>
+                <Typo size={12} fontWeight={'bold'} color={palette.white}>✓</Typo>
               </View>
             )}
           </TouchableOpacity>
@@ -53,41 +57,34 @@ export default QuickSettings;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    gap: 12,
+    gap: spacingX._12,
   },
   card: {
     flex: 1,
     borderWidth: 1.5,
-    borderColor: '#FF6A00',
-    borderRadius: 16,
-    paddingVertical: 20,
+    borderColor: light.primary,
+    borderRadius: radius._15,
+    paddingVertical: spacingY._20,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: light.surface,
     position: 'relative',
   },
   cardSelected: {
-    backgroundColor: '#FFF3EB',
+    backgroundColor: light.primaryLight,
   },
   label: {
-    marginTop: 8,
-    fontSize: 14,
-    fontWeight: '500',
+    marginTop: spacingY._7,
   },
   check: {
     position: 'absolute',
-    top: 8,
-    right: 8,
+    top: spacingY._7,
+    right: spacingX._7,
     width: 22,
     height: 22,
-    borderRadius: 6,
-    backgroundColor: '#FF6A00',
+    borderRadius: radius._6,
+    backgroundColor: light.primary,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  checkText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
   },
 });

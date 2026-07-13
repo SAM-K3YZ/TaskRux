@@ -4,7 +4,7 @@ import { verticalScale } from '@/src/shared/utils/styling';
 import { useRouter } from 'expo-router';
 import { CaretLeftIcon } from 'phosphor-react-native';
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 const BackButton = ({
   style,
   iconSize = 26,
@@ -15,7 +15,7 @@ const BackButton = ({
   return (
     <TouchableOpacity
       onPress={() => router.back()}
-      style={[styles.button, style]}
+      style={style}
     >
       <CaretLeftIcon
         size={verticalScale(iconSize)}
@@ -27,7 +27,3 @@ const BackButton = ({
 };
 
 export default BackButton;
-
-const styles = StyleSheet.create({
-  button: {},
-});

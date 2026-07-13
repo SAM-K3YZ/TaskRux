@@ -30,7 +30,7 @@ function Welcome() {
 
           <View style={styles.row}>
             <View style={styles.btn}>
-              <DefaultButton onPress={() => router.push('/(auth)/onBoarding')}>
+              <DefaultButton onPress={() => router.push('/(auth)/onboarding')}>
                 <Typo size={20} fontWeight={'bold'}>
                   Get Started
                 </Typo>
@@ -48,7 +48,7 @@ function Welcome() {
               <Typo size={16}>Already have an account?</Typo>
               <Pressable
                 style={styles.signInBtn}
-                onPress={() => router.push('/(auth)/welcomeBack')}
+                onPress={() => router.push('/(auth)/welcome-back')}
               >
                 <Typo size={16} fontWeight={'bold'} color={palette.brandOrange}>
                   Sign In
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   row: {
-    marginBottom: spacingX._25,
+    marginBottom: spacingY._25,
   },
   btn: {
-    marginBottom: spacingX._5,
+    marginBottom: spacingY._5,
   },
   btnIcon: {
-    marginStart: spacingY._10,
+    marginStart: spacingX._10,
   },
   toSignIn: {
     marginTop: spacingY._7,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   signInBtn: {
-    marginStart: spacingY._10,
+    marginStart: spacingX._10,
   },
   agreementText: {
     textAlign: 'center',

@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     flexDirection: 'row',
-    gap: spacingY._25,
+    gap: spacingX._25,
     elevation: 2,
     shadowColor: '#000',
     shadowOpacity: 0.04,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacingY._10,
+    gap: spacingX._10,
   },
   iconWrapper: {
     width: verticalScale(44),
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     //backgroundColor: light.border,
   },
   badge: {
-    paddingHorizontal: spacingY._10,
+    paddingHorizontal: spacingX._10,
     paddingVertical: spacingY._5,
     borderRadius: radius._12,
   },
