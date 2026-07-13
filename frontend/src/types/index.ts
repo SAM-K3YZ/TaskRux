@@ -269,3 +269,109 @@ export type MessageProps = {
   isMe?: boolean;
   createdAt: string;
 };
+
+export type TaskStatus = 'pending' | 'in_progress' | 'done';
+export type TaskPriority = 'high' | 'medium' | 'low';
+export type WorkerStatus = 'on_site' | 'off_site';
+export type NotificationType = 'task' | 'report' | 'delivery' | 'worker' | 'project';
+
+export interface Worker {
+  id: string;
+  name: string;
+  role: string;
+  site: string;
+  siteId: string;
+  status: WorkerStatus;
+  phone: string;
+  email: string;
+  startDate: string;
+  taskCount: number;
+  avatar: string | null;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  address: string;
+  status: ProjectStatus;
+  progress: number;
+  workerCount: number;
+  taskCount: number;
+  deadline: string;
+  budget: string;
+  spent: string;
+  description: string;
+}
+
+export interface Task {
+  id: string;
+  title: string;
+  site: string;
+  siteId: string;
+  assigneeId: string;
+  assigneeName: string;
+  priority: TaskPriority;
+  status: TaskStatus;
+  dueDate: string;
+  createdAt: string;
+  description: string;
+}
+
+export interface Milestone {
+  id: string;
+  title: string;
+  date: string;
+  done: boolean;
+}
+
+export interface AppNotification {
+  id: string;
+  type: NotificationType;
+  title: string;
+  message: string;
+  time: string;
+  read: boolean;
+  relatedId: string;
+}
+
+export interface FilterTabsProps {
+  tabs: string[];
+  active: string;
+  onChange: (tab: string) => void;
+}
+
+export interface ProgressBarProps {
+  progress: number;
+  color?: string;
+  height?: number;
+  style?: ViewStyle;
+}
+
+export interface EmptyStateProps {
+  icon: React.ReactNode;
+  title: string;
+  subtitle?: string;
+}
+
+export interface StatCardProps {
+  label: string;
+  value: string | number;
+  icon?: React.ReactNode;
+  iconBg?: string;
+  style?: ViewStyle;
+}
+
+export interface NotificationCardProps {
+  item: AppNotification;
+  onPress: () => void;
+}
+
+export interface WorkerCardProps {
+  worker: Worker;
+  onPress: () => void;
+}
+
+export interface MilestoneCardProps {
+  milestone: Milestone;
+  isLast?: boolean;
+}

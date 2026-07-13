@@ -11,25 +11,16 @@ import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 
 const HomeScreen = () => {
-  const toProfile = async () => {
-    try {
-      Alert.alert('Profile Page', 'Screen Coming soon...');
-      //router.push('/');
-    } catch (error) {
-      console.log('error:', error);
-    }
-    console.log('To profile page screen...');
+  const insets = useSafeAreaInsets();
+  const toProfile = () => {
+    router.push('/profile');
   };
-  const toNotification = async () => {
-    try {
-      Alert.alert('Notification Page', 'Screen Coming soon...');
-      //router.push('/');
-    } catch (error) {
-      console.log('error:', error);
-    }
-    console.log('To notification screen...');
+  const toNotification = () => {
+    router.push('/notifications');
   };
   const toViewAllRecentsActivities = async () => {
     try {
@@ -42,7 +33,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.top}>
         <View style={styles.topLeft}>
           <Typo

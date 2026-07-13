@@ -4,6 +4,8 @@ import { verticalScale } from '@/src/shared/utils/styling';
 import * as Icon from 'phosphor-react-native';
 import React from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 
 // TODO: replace Alert stubs with real navigation once screens exist
 
@@ -23,7 +25,7 @@ const SECTIONS: SettingSection[] = [
   {
     title: 'Account',
     rows: [
-      { icon: Icon.UserCircleIcon, label: 'Profile', onPress: () => Alert.alert('Profile', 'Coming soon.') },
+      { icon: Icon.UserCircleIcon, label: 'Profile', onPress: () => router.push('/profile') },
       { icon: Icon.LockKeyIcon,    label: 'Change Password', onPress: () => Alert.alert('Password', 'Coming soon.') },
       { icon: Icon.BuildingOfficeIcon, label: 'Company Settings', onPress: () => Alert.alert('Company', 'Coming soon.') },
     ],
@@ -53,8 +55,9 @@ const SECTIONS: SettingSection[] = [
 ];
 
 const SettingsScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.top}>
         <Typo size={verticalScale(16)} color={light.textPrimary} fontWeight={'bold'}>
           Settings
@@ -140,7 +143,6 @@ const styles = StyleSheet.create({
   sectionCard: {
     backgroundColor: light.surface,
     borderRadius: radius._12,
-    overflow: 'hidden',
     elevation: 1,
     shadowColor: '#000',
     shadowOpacity: 0.04,

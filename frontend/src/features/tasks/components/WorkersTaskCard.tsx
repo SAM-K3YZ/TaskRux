@@ -72,7 +72,7 @@ export default WorkersTaskCard;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    alignSelf: 'stretch',
     alignItems: 'center',
     padding: 20,
     flexDirection: 'row',
